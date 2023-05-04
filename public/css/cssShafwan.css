@@ -1,0 +1,11 @@
+.flex {
+    display: flex;
+}
+
+.navbar {
+    background-color: rgb(162, 162, 162) !important;
+}
+
+.container_main {
+    width: 100%;
+}

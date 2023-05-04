@@ -5,7 +5,7 @@
         <div class="col-2">
                 <div class="card shadow p-2">
                     <p>Kembali ke Home</p>
-                    <button type="submit" class="btn btn1 w-100 rounded mt-3">Kembali</button>
+                    <button type="submit" class="btn btn1 w-100 rounded mt-2">Kembali</button>
                 </div>
                 <div class="card shadow p-2">
                     <form method="GET" action="{{ url('/main/input') }}">
@@ -20,7 +20,7 @@
                             </select>
                         </div>
                         <input type="hidden" name="berapaInput" value="{{ $data['berapaInput'] }}"> 
-                        <button type="submit" class="btn btn1 w-100 rounded mt-3">Ganti</button>
+                        <button type="submit" class="btn btn1 w-100 rounded mt-2">Ganti</button>
                     </form>
                 </div>
         </div>

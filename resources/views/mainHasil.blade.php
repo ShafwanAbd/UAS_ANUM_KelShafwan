@@ -4,6 +4,10 @@
     <div class="row px-3 mx-0 my-4">
         <div class="col-2">
                 <div class="card shadow p-2">
+                    <p>Kembali ke Home</p>
+                    <button type="submit" class="btn btn1 w-100 rounded mt-3">Kembali</button>
+                </div>
+                <div class="card shadow p-2">
                     <form method="GET" action="{{ url('/main/input') }}">
                     @csrf
                         <div class="mb-3">
@@ -16,7 +20,7 @@
                             </select>
                         </div>
                         <input type="hidden" name="berapaInput" value="{{ $data['berapaInput'] }}"> 
-                        <button type="submit" class="btn btn1 w-100 rounded-pill mt-3">Ganti</button>
+                        <button type="submit" class="btn btn1 w-100 rounded mt-3">Ganti</button>
                     </form>
                 </div>
         </div>
@@ -62,26 +66,103 @@
                     </table>
             </div>
 
-            <div class="my-3">
+            <div class="my-4">
                 <p>Berdasarkan Cara ke-1, maka proses pengerjaan dapat diuraikan seperti berikut: </p>
-                <div class="d-flex justify-content-between w-50 mx-auto">
-                    <div>
-                        <math>
-                            <mi>a</mi>
-                            <mo>=</mo>
-                            <mfrac>
-                                <mi>(56)(96)-(24)(198)</mi>
-                                <mi>(8)(96)-(24)</mi><sup>2</sup>
-                            </mfrac>
-                        </math>
+                <div class="d-flex justify-content-between w-75 mx-auto">
+                    <div class="">
+                        <div>
+                            <math>
+                                <mi>a</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>(56)(96)-(24)(198)</mi>
+                                    <msup>
+                                        <mrow>
+                                            <mi>(8)(96)-(24)</mi>
+                                        </mrow>
+                                        <mn>2</mn>
+                                    </msup>
+                                </mfrac>
+                            </math>
+                        </div>
+                        <div class="my-4">
+                            <math>
+                                <mi>a</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>5376-4752</mi>
+                                    <mi>768-576</mi>
+                                </mfrac>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <mi>a</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>5376</mi>
+                                    <mi>768</mi>
+                                </mfrac>
+                            </math>
+                        </div>
+                        <div class="mt-4">
+                            <math>
+                                <mi>a</mi>
+                                <mo>=</mo>
+                                <mi>5376</mi>
+                            </math>
+                        </div>
                     </div>
+
                     <div>
-                        b = adjkslafj
+                    <div>
+                            <math>
+                                <mi>b</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>(56)(96)-(24)(198)</mi>
+                                    <msup>
+                                        <mrow>
+                                            <mi>(8)(96)-(24)</mi>
+                                        </mrow>
+                                        <mn>2</mn>
+                                    </msup>
+                                </mfrac>
+                            </math>
+                        </div>
+                        <div class="my-4">
+                            <math>
+                                <mi>b</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>5376-4752</mi>
+                                    <mi>768-576</mi>
+                                </mfrac>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <mi>b</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>5376</mi>
+                                    <mi>768</mi>
+                                </mfrac>
+                            </math>
+                        </div>
+                        <div class="mt-4">
+                            <math>
+                                <mi>b</mi>
+                                <mo>=</mo>
+                                <mi>5376</mi>
+                            </math>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
-            <div class="my-3">
+            <div class="my-4">
                 <p>Sehingga dapat diperoleh nilai sebagai berikut:</p>
                 <div class="d-flex justify-content-between w-25 mx-auto">
                     <p class="fst-italic">a = 5</p>
@@ -89,18 +170,24 @@
                 </div>
             </div>
 
-            <div class="my-3">
+            <div class="my-4">
                 <p>Persamaan regresi linear: </p>
                 <p class="text-center fst-italic">Y = 300 + 69x</p>
             </div>
 
-            <div class="my-3">
+            <div class="my-4 card p-3 background3">
                 <p>Perkiraan nilai Y, jika X = O  adalah Y = 3.25+1.25X, maka:</p>
-                <p class="text-center fst-italic">Y = 3.25+1.25(3.5)</p>
+                <div class="fst-italic w-25 mx-auto">
+                    <p>Y = 3.25+1.25(3.5)</p>
+                    <p>Y = 3.25+4.375</p>
+                    <p>Y = 7.625</p>
+                    <button type="submit" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Submit</button>
+                </div>
             </div>
 
+
             <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn1 py-2 px-5 rounded-pill text-end mt-4 mb-3">Back To Top</button>
+                    <button type="submit" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Back To Top</button>
             </div>
         </div>
     </div>

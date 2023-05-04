@@ -10,7 +10,7 @@
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Banyak Input</label>
                             <input name="berapaInput" type="number" value="{{ $data['berapaInput'] }}" class="background-input form-control" id="exampleFormControlInput1" placeholder="Number">
-                        </div>        
+                        </div>           
                             <input type="hidden" name="cara" value="{{ $data['cara'] }}"> 
                             <button type="submit" class="btn btn1 w-100 rounded-pill mt-3">Submit</button>
                     </form>

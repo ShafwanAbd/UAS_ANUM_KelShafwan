@@ -7,7 +7,7 @@
             @csrf
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Banyak Input</label>
-                    <input name="berapaInput" type="number" value="{{ $data['berapaInput'] }}" class="form-control" id="exampleFormControlInput1" placeholder="Number">
+                    <input name="berapaInput" type="number" value="{{ $data['berapaInput'] }}" class="form-control" id="exampleFormControlInput1" placeholder="0" min="0">
                 </div>        
                     <input type="hidden" name="cara" value="{{ $data['cara'] }}"> 
                     <button type="submit" class="btn btn-primary">SUBMIT</button>

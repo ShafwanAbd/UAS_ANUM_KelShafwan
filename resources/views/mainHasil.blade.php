@@ -5,7 +5,7 @@
         <div class="col-2">
                 <div class="card shadow p-2">
                     <p>Kembali ke Home</p>
-                    <button type="submit" class="btn btn1 w-100 rounded mt-2">Kembali</button>
+                    <a href="{{ url('/main') }}" type="submit" class="btn btn1 w-100 rounded mt-2">Kembali</a>
                 </div>
                 <div class="card shadow p-2">
                     <form method="GET" action="{{ url('/main/input') }}">
@@ -28,7 +28,7 @@
             <p class="h2 text-center my-3">HASIL</p>
             <div>
                 <p>Berdasarkan data sebelumnya, maka dihasilkan tabel sebagai berikut:</p>
-                <table class="table w-50 mx-auto background-table1 text-center">
+                <table class="table w-50 mx-auto background-table2 text-center">
                     <thead class="">
                         <tr>
                             <th scope="col">X</th>
@@ -38,29 +38,24 @@
                             <th scope="col">XY</th>
                         </tr>
                     </thead>
-                    <tbody class="">
+                    <tbody class="background-table1">
+                        @for ($i = 1; $i <= $data['berapaInput']; $i++)
                         <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                        </tr>
+                            <td>{{ $hasil['xinput'][$i] }}</td>
+                            <td>{{ $hasil['yinput'][$i] }}</td>
+                            <td>{{ $hasil['x2input'][$i] }}</td>
+                            <td>{{ $hasil['y2input'][$i] }}</td>
+                            <td>{{ $hasil['xyinput'][$i] }}</td> 
+                        </tr> 
+                        @endfor
 
                         <!-- row paling bawah -->
                         <tr class="background-table2">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
+                            <td>{{ $hasil['xtotal'] }}</td>
+                            <td>{{ $hasil['ytotal'] }}</td>
+                            <td>{{ $hasil['x2total'] }}</td>
+                            <td>{{ $hasil['y2total'] }}</td>
+                            <td>{{ $hasil['xytotal'] }}</td> 
                         </tr>
                     </tbody>
                     </table>
@@ -75,10 +70,10 @@
                                 <mi>a</mi>
                                 <mo>=</mo>
                                 <mfrac>
-                                    <mi>(56)(96)-(24)(198)</mi>
+                                    <mi>({{ $hasil['ytotal'] }})({{ $hasil['x2total'] }})-({{ $hasil['xtotal'] }})({{ $hasil['xytotal'] }})</mi>
                                     <msup>
                                         <mrow>
-                                            <mi>(8)(96)-(24)</mi>
+                                            <mi>({{ $data['berapaInput'] }})({{ $hasil['x2total'] }})-({{ $hasil['xtotal'] }})</mi>
                                         </mrow>
                                         <mn>2</mn>
                                     </msup>
@@ -90,8 +85,8 @@
                                 <mi>a</mi>
                                 <mo>=</mo>
                                 <mfrac>
-                                    <mi>5376-4752</mi>
-                                    <mi>768-576</mi>
+                                    <mi>{{ $hasil['ytotal'] * $hasil['x2total'] }}-{{ $hasil['xtotal'] * $hasil['xytotal'] }}</mi>
+                                    <mi>{{ $data['berapaInput'] * $hasil['x2total'] }}-{{ $hasil['xtotal'] * $hasil['xtotal'] }}</mi>
                                 </mfrac>
                             </math>
                         </div>
@@ -100,8 +95,8 @@
                                 <mi>a</mi>
                                 <mo>=</mo>
                                 <mfrac>
-                                    <mi>5376</mi>
-                                    <mi>768</mi>
+                                    <mi>{{ ($hasil['ytotal'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xytotal'])}}</mi>
+                                    <mi>{{ ($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal']) }}</mi>
                                 </mfrac>
                             </math>
                         </div>
@@ -109,7 +104,7 @@
                             <math>
                                 <mi>a</mi>
                                 <mo>=</mo>
-                                <mi>5376</mi>
+                                <mi>{{ (($hasil['ytotal'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) }}</mi>
                             </math>
                         </div>
                     </div>
@@ -120,10 +115,10 @@
                                 <mi>b</mi>
                                 <mo>=</mo>
                                 <mfrac>
-                                    <mi>(56)(96)-(24)(198)</mi>
+                                    <mi>({{ $data['berapaInput'] }})({{ $hasil['xytotal'] }})-({{ $hasil['xtotal'] }})({{ $hasil['ytotal'] }})</mi>
                                     <msup>
                                         <mrow>
-                                            <mi>(8)(96)-(24)</mi>
+                                            <mi>({{ $data['berapaInput'] }})({{ $hasil['x2total'] }})-({{ $hasil['xtotal'] }})</mi>
                                         </mrow>
                                         <mn>2</mn>
                                     </msup>
@@ -135,8 +130,8 @@
                                 <mi>b</mi>
                                 <mo>=</mo>
                                 <mfrac>
-                                    <mi>5376-4752</mi>
-                                    <mi>768-576</mi>
+                                    <mi>{{ $data['berapaInput'] * $hasil['xytotal'] }}-{{ $hasil['xtotal'] * $hasil['ytotal'] }}</mi>
+                                    <mi>{{ $data['berapaInput'] * $hasil['x2total'] }}-{{ $hasil['xtotal'] * $hasil['xtotal'] }}</mi>
                                 </mfrac>
                             </math>
                         </div>
@@ -145,8 +140,8 @@
                                 <mi>b</mi>
                                 <mo>=</mo>
                                 <mfrac>
-                                    <mi>5376</mi>
-                                    <mi>768</mi>
+                                    <mi>{{ ($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal']) }}</mi>
+                                    <mi>{{ ($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal']) }}</mi>
                                 </mfrac>
                             </math>
                         </div>
@@ -154,7 +149,7 @@
                             <math>
                                 <mi>b</mi>
                                 <mo>=</mo>
-                                <mi>5376</mi>
+                                <mi>{{ (($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) }}</mi>
                             </math>
                         </div>
                     </div>
@@ -165,14 +160,14 @@
             <div class="my-4">
                 <p>Sehingga dapat diperoleh nilai sebagai berikut:</p>
                 <div class="d-flex justify-content-between w-25 mx-auto">
-                    <p class="fst-italic">a = 5</p>
-                    <p class="fst-italic">b = 6</p>
+                    <p class="fst-italic">a = {{ $hasil['a'] }}</p>
+                    <p class="fst-italic">b = {{ $hasil['b'] }}</p>
                 </div>
             </div>
 
             <div class="my-4">
                 <p>Persamaan regresi linearnya adalah: </p>
-                <p class="text-center fst-italic">Y = 300 + 69x</p>
+                <p class="text-center fst-italic">Y = {{ $hasil['a'] }} + {{ $hasil['b'] }}x</p>
             </div>
 
             <div class="my-4 card p-3 background3">
@@ -180,10 +175,10 @@
                     @csrf
                     <p>Perkiraan nilai Y, jika X = <span>
                         <input type="number" style="width: 45px;">
-                    </span>  adalah Y = 3.25+1.25X, maka:</p>
+                    </span>  adalah Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}X, maka:</p>
                     <div class="fst-italic w-25 mx-auto">
-                        <p>Y = 3.25+1.25(3.5)</p>
-                        <p>Y = 3.25+4.375</p>
+                        <p>Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}(3.5)</p>
+                        <p>Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}</p>
                         <p>Y = 7.625</p>
                         <button type="submit" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Submit</button>
                     </div>
@@ -192,7 +187,7 @@
 
 
             <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Back To Top</button>
+                    <a href="#" type="submit" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Back To Top</a>
             </div>
         </div>
     </div>

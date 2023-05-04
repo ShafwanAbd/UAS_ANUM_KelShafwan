@@ -12,7 +12,7 @@
                             <input name="berapaInput" type="number" value="{{ $data['berapaInput'] }}" class="background-input form-control" id="exampleFormControlInput1" placeholder="Number">
                         </div>           
                             <input type="hidden" name="cara" value="{{ $data['cara'] }}"> 
-                            <button type="submit" class="btn btn1 w-100 rounded-pill mt-2">Submit</button>
+                            <button type="submit" class="btn btn1 w-100 rounded mt-2">Submit</button>
                     </form>
                 </div>
                 
@@ -29,7 +29,7 @@
                             </select>
                         </div>
                         <input type="hidden" name="berapaInput" value="{{ $data['berapaInput'] }}"> 
-                        <button type="submit" class="btn btn1 w-100 rounded-pill mt-2">Submit</button>
+                        <button type="submit" class="btn btn1 w-100 rounded mt-2">Submit</button>
                     </form>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                     </div> 
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn1 py-2 px-5 rounded-pill text-end mt-4 mb-3">Submit</button>
+                    <button type="submit" class="btn btn1 py-2 px-5 rounded text-end mt-4 mb-3">Submit</button>
                 </div>
                 </form>
             </div>

@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
 .flex {
     display: flex;
 }
@@ -26,4 +31,18 @@
 
 .background-input {
     background-color: #d9d9d9;
+}
+
+.background-table1 {
+    background-color: #e4e4e4;
+}
+
+.background-table2 {
+    background-color: #c2c2c2;
+}
+
+table,
+th,
+td {
+    border: 2px solid;
 }

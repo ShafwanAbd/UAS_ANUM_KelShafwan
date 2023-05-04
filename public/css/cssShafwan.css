@@ -3,6 +3,10 @@
     font-size: 20px;
 }
 
+.background-main {
+    background-color: #ededed;
+}
+
 .flex {
     display: flex;
 }
@@ -48,5 +52,5 @@ td {
 }
 
 .background3 {
-    background-color: #c8c8c8;
+    background-color: #f2f2f2;
 }

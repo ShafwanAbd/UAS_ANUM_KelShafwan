@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="container_main my-4 background">
+    <div class="container_main py-4 background-main">
         <div class="container_berapaInput flex row px-3 mx-0"> 
             <div class="col-2">
                 <div class="mb-5 card shadow p-2">

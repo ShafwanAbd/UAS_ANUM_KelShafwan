@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="row px-3 mx-0 my-4">
+    <div class="row px-3 mx-0 py-4 background-main">
         <div class="col-2">
                 <div class="card shadow p-2">
                     <p>Kembali ke Home</p>
@@ -176,7 +176,9 @@
             </div>
 
             <div class="my-4 card p-3 background3">
-                <p>Perkiraan nilai Y, jika X = O  adalah Y = 3.25+1.25X, maka:</p>
+                <p>Perkiraan nilai Y, jika X = <span>
+                    <input type="number" style="width: 45px;">
+                </span>  adalah Y = 3.25+1.25X, maka:</p>
                 <div class="fst-italic w-25 mx-auto">
                     <p>Y = 3.25+1.25(3.5)</p>
                     <p>Y = 3.25+4.375</p>

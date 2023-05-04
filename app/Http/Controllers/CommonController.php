@@ -7,7 +7,13 @@ use Illuminate\Http\Request;
 class CommonController extends Controller
 {
     public function main_index(){
-        return view('main');
+
+        $data['berapaInput'] = '3';
+        $data['cara'] = '';
+
+        return view('main', compact(
+            'data'
+        ));
     }
     
     public function mainInput(Request $request){

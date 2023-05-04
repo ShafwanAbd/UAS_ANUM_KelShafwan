@@ -171,20 +171,23 @@
             </div>
 
             <div class="my-4">
-                <p>Persamaan regresi linear: </p>
+                <p>Persamaan regresi linearnya adalah: </p>
                 <p class="text-center fst-italic">Y = 300 + 69x</p>
             </div>
 
             <div class="my-4 card p-3 background3">
-                <p>Perkiraan nilai Y, jika X = <span>
-                    <input type="number" style="width: 45px;">
-                </span>  adalah Y = 3.25+1.25X, maka:</p>
-                <div class="fst-italic w-25 mx-auto">
-                    <p>Y = 3.25+1.25(3.5)</p>
-                    <p>Y = 3.25+4.375</p>
-                    <p>Y = 7.625</p>
-                    <button type="submit" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Submit</button>
-                </div>
+                <form method="GET" action="{{ url('/main/input') }}">
+                    @csrf
+                    <p>Perkiraan nilai Y, jika X = <span>
+                        <input type="number" style="width: 45px;">
+                    </span>  adalah Y = 3.25+1.25X, maka:</p>
+                    <div class="fst-italic w-25 mx-auto">
+                        <p>Y = 3.25+1.25(3.5)</p>
+                        <p>Y = 3.25+4.375</p>
+                        <p>Y = 7.625</p>
+                        <button type="submit" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Submit</button>
+                    </div>
+                </form>
             </div>
 
 

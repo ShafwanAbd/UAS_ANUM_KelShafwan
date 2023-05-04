@@ -8,7 +8,7 @@
                     @csrf
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Banyak Input</label>
-                            <input name="berapaInput" type="number" value="{{ $data['berapaInput'] }}" class="background-input form-control" id="exampleFormControlInput1" placeholder="Number">
+                            <input name="berapaInput" type="number" value="{{ $data['berapaInput'] }}" min="2" class="background-input form-control" id="exampleFormControlInput1" placeholder="0"  required>
                         </div>           
                             <input type="hidden" name="cara" value="{{ $data['cara'] }}"> 
                             <button type="submit" class="btn btn1 w-100 rounded mt-2">Submit</button>
@@ -20,7 +20,7 @@
                     @csrf
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Cara Ke</label>
-                            <select name="cara" class="form-control background-input">
+                            <select name="cara" class="form-control background-input" required>
                                 <option value="" selected disabled>-- Select --</option>
                                 <option value="1" {{ $data['cara'] == '1' ? 'selected' : '' }}>1</option>
                                 <option value="2" {{ $data['cara'] == '2' ? 'selected' : '' }}>2</option>
@@ -44,7 +44,7 @@
                         @for ($i = 1; $i <= $data['berapaInput']; $i++)
                         <div class="mb-3">
                             <!-- <label for="exampleFormControlInput1" class="form-label">Input {{ $i }}</label> -->
-                            <input name="xinput{{ $i }}" type="number" class="background-input form-control" id="exampleFormControlInput1" placeholder="Input Ke-{{ $i }}">
+                            <input name="xinput{{ $i }}" value="{{ isset($xinput) ? $xinput : '' }}[$i]" type="number" class="background-input form-control" id="exampleFormControlInput1" placeholder="Input Ke-{{ $i }}">
                         </div>
                         @endfor
                     </div> 

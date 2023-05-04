@@ -2,9 +2,8 @@
 
 @section('content')
     <div class="container_main py-4 background-main">
-        <div class="container_berapaInput flex row px-3 mx-0"> 
-            <div class="col-2">
-                <div class="mb-5 card shadow p-2">
+         <div class="px-3 position-fixed top-0 start-0 py-4">
+                <div class="mb-3 card shadow p-2 ">
                     <form method="GET" action="{{ url('/main/input') }}">
                     @csrf
                         <div class="mb-3">
@@ -32,9 +31,11 @@
                         <button type="submit" class="btn btn1 w-100 rounded mt-2">Submit</button>
                     </form>
                 </div>
-            </div>
-            
-            <div class="col-10 card shadow">
+        </div>
+
+
+        <div class="container_berapaInput flex row px-3 mx-0 d-flex justify-content-end">  
+            <div class="col-9 card shadow">
                 <form method="POST" action="{{ url('/main/hasil/'.$data['berapaInput'].'/'.$data['cara']) }}">
                 @csrf
                 <div class="container_input flex row">

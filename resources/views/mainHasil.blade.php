@@ -2,29 +2,29 @@
 
 @section('content')
     <div class="container_main background-main py-4 px-3">
-        <div class="position-fixed top-0 start-0 py-4 px-3">
-                <div class="card shadow p-2 mb-3">
-                    <p>Kembali ke Home</p>
-                    <a href="{{ url('/main') }}" type="submit" class="btn btn1 w-100 rounded mt-2">Kembali</a>
-                </div>
-                <div class="card shadow p-2">
-                    <form method="GET" action="{{ url('/main/input') }}">
-                    @csrf
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Ganti Cara</label>
-                            <select name="cara" class="form-control background-input">
-                                <option value="" selected disabled>-- Select --</option>
-                                <option value="1" {{ $data['cara'] == '1' ? 'selected' : '' }}>1</option>
-                                <option value="2" {{ $data['cara'] == '2' ? 'selected' : '' }}>2</option>
-                                <option value="3" {{ $data['cara'] == '3' ? 'selected' : '' }}>3</option>
-                            </select>
-                        </div>
-                        <input type="hidden" name="berapaInput" value="{{ $data['berapaInput'] }}"> 
-                        <button type="submit" class="btn btn1 w-100 rounded mt-2">Ganti</button>
-                    </form>
-                </div>
-        </div>
         <div class="row d-flex justify-content-end mx-0">
+            <div class="position-fixed top-0 start-0 py-4 px-3 col-3">
+                    <div class="card shadow p-2 mb-3">
+                        <p>Kembali ke Home</p>
+                        <a href="{{ url('/main') }}" type="submit" class="btn btn1 w-100 rounded mt-2">Kembali</a>
+                    </div>
+                    <div class="card shadow p-2">
+                        <form method="GET" action="{{ url('/main/input') }}">
+                        @csrf
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Ganti Cara</label>
+                                <select name="cara" class="form-control background-input">
+                                    <option value="" selected disabled>-- Select --</option>
+                                    <option value="1" {{ $data['cara'] == '1' ? 'selected' : '' }}>1</option>
+                                    <option value="2" {{ $data['cara'] == '2' ? 'selected' : '' }}>2</option>
+                                    <option value="3" {{ $data['cara'] == '3' ? 'selected' : '' }}>3</option>
+                                </select>
+                            </div>
+                            <input type="hidden" name="berapaInput" value="{{ $data['berapaInput'] }}"> 
+                            <button type="submit" class="btn btn1 w-100 rounded mt-2">Ganti</button>
+                        </form>
+                    </div>
+            </div>
             <div class="col-9 card shadow px-5">
                 <p class="h2 text-center my-3">HASIL</p>
                 <div>

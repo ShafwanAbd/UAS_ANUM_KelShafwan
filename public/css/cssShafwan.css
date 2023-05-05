@@ -11,6 +11,10 @@ body {
     background-color: #ededed;
 }
 
+.hidden {
+    display: none;
+}
+
 .flex {
     display: flex;
 }
@@ -21,6 +25,11 @@ body {
 
 .container_main {
     width: 100%;
+}
+
+.title {
+    font-weight: 800;
+    letter-spacing: 5px;
 }
 
 .btn1 {
@@ -57,4 +66,16 @@ td {
 
 .background3 {
     background-color: #f2f2f2;
+}
+
+math {
+    font-style: italic;
+}
+
+#inptEnd {
+    outline: none;
+    border: none;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    padding: 5px;
 }

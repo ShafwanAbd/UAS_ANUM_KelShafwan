@@ -4,7 +4,7 @@
     <div class="container_main py-4 background-main">
         <div class="container_berapaInput flex row px-3 mx-0 d-flex justify-content-end">  
             <div class="col-3 px-3 position-fixed top-0 start-0 py-4">
-                    <div class="mb-3 card shadow p-2 ">
+                    <div class="mb-3 card shadow p-3">
                         <form method="GET" action="{{ url('/main/input') }}">
                         @csrf
                             <div class="mb-3">
@@ -16,7 +16,7 @@
                         </form>
                     </div>
                     
-                    <div class="card shadow p-2">
+                    <div class="card shadow p-3">
                         <form method="GET" action="{{ url('/main/input') }}">
                         @csrf
                             <div class="mb-3">
@@ -35,9 +35,9 @@
             <div class="col-9 card shadow">
                 <form method="POST" action="{{ url('/main/hasil/'.$data['berapaInput'].'/'.$data['cara']) }}">
                 @csrf
-                <div class="container_input flex row">
-                    <div class="col px-5"> 
-                        <h3 class="text-center">X Input</h3>
+                <div class="container_input flex row p-3">
+                    <div class="col"> 
+                        <h3 class="text-center mb-3">X Input</h3>
                         @for ($i = 1; $i <= $data['berapaInput']; $i++)
                         <div class="mb-3">
                             <!-- <label for="exampleFormControlInput1" class="form-label">Input {{ $i }}</label> -->
@@ -45,8 +45,8 @@
                         </div>
                         @endfor
                     </div> 
-                    <div class="col px-5"> 
-                        <h3 class="text-center">Y Input</h3>
+                    <div class="col"> 
+                        <h3 class="text-center mb-3">Y Input</h3>
                         @for ($i = 1; $i <= $data['berapaInput']; $i++)
                         <div class="mb-3">
                             <!-- <label for="exampleFormControlInput1" class="form-label">Input {{ $i }}</label> -->
@@ -56,7 +56,7 @@
                     </div> 
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn1 py-2 px-5 rounded text-end mt-4 mb-3">Submit</button>
+                    <button type="submit" class="btn btn1 py-2 px-5 rounded text-end mt-4 mb-3 mx-3">Submit</button>
                 </div>
                 </form>
             </div>

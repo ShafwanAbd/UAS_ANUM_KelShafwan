@@ -4,11 +4,11 @@
     <div class="container_main background-main py-4 px-3">
         <div class="row d-flex justify-content-end mx-0">
             <div class="position-fixed top-0 start-0 py-4 px-3 col-3">
-                    <div class="card shadow p-2 mb-3 ">
+                    <div class="card shadow p-3 mb-3 ">
                         <p>Kembali ke Home</p>
                         <a href="{{ url('/main') }}" type="submit" class="btn btn1 w-100 rounded mt-2">Kembali</a>
                     </div>
-                    <div class="card shadow p-2">
+                    <div class="card shadow p-3">
                         <form method="GET" action="{{ url('/main/input') }}">
                         @csrf
                             <div class="mb-3">
@@ -25,9 +25,9 @@
                     </div>
             </div>
             <div class="col-9 card shadow px-5">
-                <p class="h2 text-center my-3">HASIL</p>
+                <p class="title h2 text-center my-3">HASIL</p>
                 <div>
-                    <p>Berdasarkan data sebelumnya, maka dihasilkan tabel sebagai berikut:</p>
+                    <p class="mb-4">Berdasarkan data sebelumnya, maka dihasilkan tabel sebagai berikut:</p>
                     <table class="table w-50 mx-auto background-table2 text-center">
                         <thead class="">
                             <tr>
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="my-4">
-                    <p>Berdasarkan Cara ke-1, maka proses pengerjaan dapat diuraikan seperti berikut: </p>
+                    <p class="mb-4">Berdasarkan Cara ke-1, maka proses pengerjaan dapat diuraikan seperti berikut: </p>
                     <div class="d-flex justify-content-between w-75 mx-auto">
                         <div class="">
                             <div>
@@ -158,33 +158,60 @@
                     </div>
 
                 <div class="my-4">
-                    <p>Sehingga dapat diperoleh nilai sebagai berikut:</p>
+                    <p class="mb-4">Sehingga dapat diperoleh nilai sebagai berikut:</p>
                     <div class="d-flex justify-content-between w-50 mx-auto">
-                        <p class="fst-italic">a = {{ $hasil['a'] }}</p>
-                        <p class="fst-italic">b = {{ $hasil['b'] }}</p>
+                        <p><math><mi>a</mi><mo>=</mo><mi>{{ $hasil['a'] }}</mi></math></p>
+                        <p><math><mi>b</mi><mo>=</mo><mi>{{ $hasil['b'] }}</mi></math></p>
                     </div>
                 </div>
 
                 <div class="my-4">
-                    <p>Persamaan regresi linearnya adalah: </p>
-                    <p class="text-center fst-italic">Y = {{ $hasil['a'] }} + {{ $hasil['b'] }}x</p>
+                    <p class="mb-4">Persamaan regresi linearnya adalah: </p>
+                    <p class="text-center fst-italic"><math><mi>Y</mi><mo>=</mo><mi>{{ $hasil['a'] }} + {{ $hasil['b'] }}x</mi></math></p>
                 </div>
 
-                <div class="my-4 card p-3 background3">
-                    <form method="GET" action="{{ url('/main/input') }}">
-                        @csrf
-                        <p>Perkiraan nilai Y, jika X = <span>
-                            <input type="text" style="width: 45px;" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                        </span>  adalah Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}X, maka:</p>
-                        <div class="fst-italic w-50 mx-auto">
-                            <p>Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}(3.5)</p>
-                            <p>Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}</p>
-                            <p>Y = 7.625</p>
-                            <button type="submit" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Submit</button>
-                        </div>
-                    </form>
+                <div class="my-4 card p-3 background3"> 
+                <p>Perkiraan nilai Y, jika X = <span>
+                <input id="inptEnd" type="text" style="width: 40px;">
+                </span>  adalah Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}X, maka:</p>
+                <div id="show1" class="fst-italic w-50 mx-auto">
+                    <p>Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}( ? )</p> 
+                    <p>Y = ( ? )</p>
+                    <button id="btnEndInput1" type="button" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Submit</button>
                 </div>
 
+                <div id="hidden1" class="fst-italic w-50 mx-auto hidden">
+                    <p id="outptEnd1">Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}(  )</p>
+                    <p id="outptEnd2">Y = {{ $hasil['a'] }}+{{ $hasil['b'] * 3.5}}</p>
+                    <p id="outptEnd3">Y = {{ $hasil['a'] + $hasil['b'] * 3.5 }}</p>
+                    <button id="btnEndInput2" type="button" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Submit</button>
+                </div>
+
+                <script>
+                    $(document).ready(function() {
+                        $('#btnEndInput1').on('click', function() {  
+                            $('#show1').addClass('hidden'); 
+                            $('#hidden1').removeClass('hidden');  
+                            
+                            const inptEnd = $('#inptEnd');
+                            const inptEndVal = $('#inptEnd').val(); 
+
+                            $('#outptEnd1').html('Y = {{ $hasil["a"] }}+{{ $hasil["b"] }}(' + inptEndVal + ')');
+                            $('#outptEnd2').html('Y = {{ $hasil["a"] }}+ ' + ('{{ $hasil["b"] }}' * inptEndVal));
+                            $('#outptEnd3').html('Y = ' + ({{ $hasil["a"] }} + ({{ $hasil["b"] }} * inptEndVal)));
+                        });
+
+                        $('#btnEndInput2').on('click', function() { 
+                            const inptEnd = $('#inptEnd');
+                            const inptEndVal = $('#inptEnd').val(); 
+ 
+                            $('#outptEnd1').html('Y = {{ $hasil["a"] }}+{{ $hasil["b"] }}(' + inptEndVal + ')');
+                            $('#outptEnd2').html('Y = {{ $hasil["a"] }}+ ' + ('{{ $hasil["b"] }}' * inptEndVal));
+                            $('#outptEnd3').html('Y = ' + ({{ $hasil["a"] }} + ({{ $hasil["b"] }} * inptEndVal)));
+                        });
+                    });
+                </script>
+                </div> 
 
                 <div class="d-flex justify-content-end">
                         <a href="#" type="submit" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Back To Top</a>

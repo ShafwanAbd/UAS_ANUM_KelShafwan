@@ -3,7 +3,7 @@
 @section('content')
     <div class="container_main background-main py-4 px-3">
         <div class="row d-flex justify-content-end mx-0">
-            <div class="position-fixed top-0 start-0 py-4 px-3 pe-5 col-3">
+            <div class="position-fixed top-0 start-0 py-4 px-3 col-3">
                     <div class="card shadow p-2 mb-3 ">
                         <p>Kembali ke Home</p>
                         <a href="{{ url('/main') }}" type="submit" class="btn btn1 w-100 rounded mt-2">Kembali</a>

@@ -9,7 +9,7 @@ class CommonController extends Controller
     public function main_index(){
 
         $data['berapaInput'] = '4';
-        $data['cara'] = '';
+        $data['cara'] = '1';
 
         return view('main', compact(
             'data'

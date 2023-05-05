@@ -22,7 +22,6 @@
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Cara Ke</label>
                             <select name="cara" class="form-control background-input" required>
-                                <option value="" selected disabled>-- Select --</option>
                                 <option value="1" {{ $data['cara'] == '1' ? 'selected' : '' }}>1</option>
                                 <option value="2" {{ $data['cara'] == '2' ? 'selected' : '' }}>2</option>
                                 <option value="3" {{ $data['cara'] == '3' ? 'selected' : '' }}>3</option>

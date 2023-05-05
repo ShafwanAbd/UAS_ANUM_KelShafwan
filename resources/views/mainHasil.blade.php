@@ -13,7 +13,6 @@
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Ganti Cara</label>
                             <select name="cara" class="form-control background-input">
-                                <option value="" selected disabled>-- Select --</option>
                                 <option value="1" {{ $data['cara'] == '1' ? 'selected' : '' }}>1</option>
                                 <option value="2" {{ $data['cara'] == '2' ? 'selected' : '' }}>2</option>
                                 <option value="3" {{ $data['cara'] == '3' ? 'selected' : '' }}>3</option>
@@ -174,7 +173,7 @@
                 <form method="GET" action="{{ url('/main/input') }}">
                     @csrf
                     <p>Perkiraan nilai Y, jika X = <span>
-                        <input type="number" style="width: 45px;">
+                        <input type="text" style="width: 45px;" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                     </span>  adalah Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}X, maka:</p>
                     <div class="fst-italic w-25 mx-auto">
                         <p>Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}(3.5)</p>

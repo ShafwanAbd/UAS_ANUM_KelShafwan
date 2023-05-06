@@ -32,7 +32,7 @@ class CommonController extends Controller
         return view('main', compact(
             'data'
         ));
-    }
+    } 
     
     public function mainInputHasil(Request $request, int $berapaInput, int $cara){
         
@@ -92,11 +92,14 @@ class CommonController extends Controller
         $hasil['x2total'] = $x2total;
         $hasil['y2total'] = $y2total;
         $hasil['xytotal'] = $xytotal; 
+        $hasil['xrata'] = $xtotal / $berapaInput;
+        $hasil['yrata'] = $ytotal / $berapaInput;
         $hasil['a'] = $a; 
         $hasil['b'] = $b;  
 
         return view('mainHasil', compact(
             'data', 'hasil'
-        )); 
+        ));  
+
     }
 }

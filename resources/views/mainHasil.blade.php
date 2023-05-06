@@ -63,7 +63,7 @@
                 <!-- CARA KE-1 -->
                 <div id="carake1" class="my-4">
                     <p class="mb-4">Berdasarkan Cara ke-1, maka proses pengerjaan dapat diuraikan seperti berikut: </p>
-                    <div class="d-flex justify-content-between w-75 mx-auto">
+                    <div class="d-flex justify-content-evenly w-75 mx-auto">
                         <div class="">
                             <div>
                                 <math>
@@ -152,110 +152,178 @@
                                     <mi>{{ (($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) }}</mi>
                                 </math>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
 
                 <!-- CARA KE-2 -->
-                <div id="carake2" class="my-4 hidden">
-                    <p class="mb-4">Berdasarkan Cara ke-2, maka proses pengerjaan dapat diuraikan seperti berikut: </p>
-                    <div class="d-flex justify-content-between w-75 mx-auto">
+                <div id="carake2" class="my-4 hidden text-center">
+                    <p class="mb-4 text-start">Berdasarkan Cara ke-2, maka proses pengerjaan dapat diuraikan seperti berikut: </p>
+                    <div class="w-50 mx-auto">
+                        <math>
+                            <mrow>
+                                <mo>(</mo>
+                                    <mfrac linethickness="0" class="px-2">
+                                        <mn class="mb-2">8</mn>
+                                        <mn>8</mn>
+                                    </mfrac>
+                                    <mfrac linethickness="0" class="px-2">
+                                        <mn class="mb-2">8</mn>
+                                        <mn>8</mn>
+                                    </mfrac>
+                                <mo>)</mo>
+                            </mrow>
+                            <mrow>
+                                <mo>(</mo>
+                                    <mfrac linethickness="0" class="px-2 py-1">
+                                        <mo class="mb-2">a</mo>
+                                        <mo>b</mo>
+                                    </mfrac>
+                                <mo>)</mo>
+                            </mrow>
+                            <mo>=</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                    <mfrac linethickness="0" class="px-2 py-1">
+                                        <mo class="mb-2">69</mo>
+                                        <mo>4</mo>
+                                    </mfrac>
+                                <mo>)</mo>
+                            </mrow>
+                        </math>
+                    </div>
+
+                    <div class="my-4 w-75 mx-auto">
+                        <math>
+                            <mrow>
+                                <mo>A</mo><mo>=</mo>
+                                <mo>(</mo>
+                                    <mfrac linethickness="0" class="px-2">
+                                        <mn class="mb-2">8</mn>
+                                        <mn>8</mn>
+                                    </mfrac>
+                                    <mfrac linethickness="0" class="px-2">
+                                        <mn class="mb-2">8</mn>
+                                        <mn>8</mn>
+                                    </mfrac>
+                                <mo>)</mo>
+                            </mrow>
+                            <mrow class="px-2">
+                                <msub>                                                                   
+                                    <mi>A</mi>
+                                    <mn>1</mn>
+                                </msub>
+                                <mo>=</mo>
+                                <mo>(</mo>
+                                    <mfrac linethickness="0" class="px-2">
+                                        <mn class="mb-2">8</mn>
+                                        <mn>8</mn>
+                                    </mfrac>
+                                    <mfrac linethickness="0" class="px-2">
+                                        <mn class="mb-2">8</mn>
+                                        <mn>8</mn>
+                                    </mfrac>
+                                <mo>)</mo>
+                            </mrow>
+                            <mrow>
+                                <msub>                                                                   
+                                    <mi>A</mi>
+                                    <mn>2</mn>
+                                </msub>
+                                <mo>=</mo>
+                                <mo>(</mo>
+                                    <mfrac linethickness="0" class="px-2">
+                                        <mn class="mb-2">8</mn>
+                                        <mn>8</mn>
+                                    </mfrac>
+                                    <mfrac linethickness="0" class="px-2">
+                                        <mn class="mb-2">8</mn>
+                                        <mn>8</mn>
+                                    </mfrac>
+                                <mo>)</mo>
+                            </mrow>
+                        </math>
+                    </div>
+
+                    <div class="w-50 mx-auto text-start">
+                        <div>
+                            <math>                                                                   
+                                <mi>det A</mi><mo>=</mo>
+                                <mo>(</mo><mn>8</mn><mo>)</mo>
+                                <mo>(</mo><mn>96</mn><mo>)</mo>
+                                <mo>-</mo>
+                                <mo>(</mo><mn>24</mn><mo>-</mo><mn>26</mn><mo>)</mo>
+                                <mo>=</mo>
+                                <mn>342</mn>
+                            </math>
+                        </div>
+                        <div>
+                            <math>                                                                   
+                                <msub>                                                                   
+                                    <mi>det A</mi>
+                                    <mn>1</mn>
+                                </msub>
+                                <mo>=</mo>
+                                <mo>(</mo><mn>8</mn><mo>)</mo>
+                                <mo>(</mo><mn>96</mn><mo>)</mo>
+                                <mo>-</mo>
+                                <mo>(</mo><mn>24</mn><mo>)</mo>
+                                <mo>(</mo><mn>198</mn><mo>)</mo>
+                                <mo>=</mo>
+                                <mn>342</mn>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>                                                                   
+                                    <mi>det A</mi>
+                                    <mn>2</mn>
+                                </msub>
+                                <mo>=</mo>
+                                <mo>(</mo><mn>8</mn><mo>)</mo>
+                                <mo>(</mo><mn>96</mn><mo>)</mo>
+                                <mo>-</mo>
+                                <mo>(</mo><mn>24</mn><mo>-</mo><mn>26</mn><mo>)</mo>
+                                <mo>=</mo>
+                                <mn>342</mn>
+                            </math>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-evenly w-50 mx-auto mt-4">
                         <div class="">
-                            <div>
-                                <math>
-                                    <mi>a</mi>
-                                    <mo>=</mo>
-                                    <mfrac>
-                                        <mi>({{ $hasil['ytotal'] }})({{ $hasil['x2total'] }})-({{ $hasil['xtotal'] }})({{ $hasil['xytotal'] }})</mi>
-                                        <msup>
-                                            <mrow>
-                                                <mi>({{ $data['berapaInput'] }})({{ $hasil['x2total'] }})-({{ $hasil['xtotal'] }})</mi>
-                                            </mrow>
-                                            <mn>2</mn>
-                                        </msup>
-                                    </mfrac>
-                                </math>
-                            </div>
-                            <div class="my-4">
-                                <math>
-                                    <mi>a</mi>
-                                    <mo>=</mo>
-                                    <mfrac>
-                                        <mi>{{ $hasil['ytotal'] * $hasil['x2total'] }}-{{ $hasil['xtotal'] * $hasil['xytotal'] }}</mi>
-                                        <mi>{{ $data['berapaInput'] * $hasil['x2total'] }}-{{ $hasil['xtotal'] * $hasil['xtotal'] }}</mi>
-                                    </mfrac>
-                                </math>
-                            </div>
-                            <div>
-                                <math>
-                                    <mi>a</mi>
-                                    <mo>=</mo>
-                                    <mfrac>
-                                        <mi>{{ ($hasil['ytotal'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xytotal'])}}</mi>
-                                        <mi>{{ ($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal']) }}</mi>
-                                    </mfrac>
-                                </math>
-                            </div>
-                            <div class="mt-4">
-                                <math>
-                                    <mi>a</mi>
-                                    <mo>=</mo>
-                                    <mi>{{ (($hasil['ytotal'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) }}</mi>
-                                </math>
-                            </div>
+                            <math>
+                                <mi>a</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>324</mi>
+                                    <mi>123</mi>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mn>890</mn>
+                            </math>
+                        </div>
+                        <div class="">
+                            <math>
+                                <mi>b</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>324</mi>
+                                    <mi>123</mi>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mn>890</mn>
+                            </math>
                         </div>
 
-                        <div>
-                            <div>
-                                <math>
-                                    <mi>b</mi>
-                                    <mo>=</mo>
-                                    <mfrac>
-                                        <mi>({{ $data['berapaInput'] }})({{ $hasil['xytotal'] }})-({{ $hasil['xtotal'] }})({{ $hasil['ytotal'] }})</mi>
-                                        <msup>
-                                            <mrow>
-                                                <mi>({{ $data['berapaInput'] }})({{ $hasil['x2total'] }})-({{ $hasil['xtotal'] }})</mi>
-                                            </mrow>
-                                            <mn>2</mn>
-                                        </msup>
-                                    </mfrac>
-                                </math>
-                            </div>
-                            <div class="my-4">
-                                <math>
-                                    <mi>b</mi>
-                                    <mo>=</mo>
-                                    <mfrac>
-                                        <mi>{{ $data['berapaInput'] * $hasil['xytotal'] }}-{{ $hasil['xtotal'] * $hasil['ytotal'] }}</mi>
-                                        <mi>{{ $data['berapaInput'] * $hasil['x2total'] }}-{{ $hasil['xtotal'] * $hasil['xtotal'] }}</mi>
-                                    </mfrac>
-                                </math>
-                            </div>
-                            <div>
-                                <math>
-                                    <mi>b</mi>
-                                    <mo>=</mo>
-                                    <mfrac>
-                                        <mi>{{ ($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal']) }}</mi>
-                                        <mi>{{ ($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal']) }}</mi>
-                                    </mfrac>
-                                </math>
-                            </div>
-                            <div class="mt-4">
-                                <math>
-                                    <mi>b</mi>
-                                    <mo>=</mo>
-                                    <mi>{{ (($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) }}</mi>
-                                </math>
-                            </div>
-                        </div> 
+
                     </div>
                 </div>
 
                 <!-- CARA KE-3 -->
                 <div id="carake3" class="my-4 hidden">
                     <p class="mb-4">Berdasarkan Cara ke-3, maka proses pengerjaan dapat diuraikan seperti berikut: </p>
-                    <div class="d-flex justify-content-between w-75 mx-auto">
+                    <div class="d-flex justify-content-evenly w-75 mx-auto">
                         <div class="">
                             <div>
                                 <math>
@@ -377,7 +445,7 @@
 
                 <div class="my-4">
                     <p class="mb-4">Sehingga dapat diperoleh nilai sebagai berikut:</p>
-                    <div class="d-flex justify-content-between w-50 mx-auto">
+                    <div class="d-flex justify-content-evenly w-75 mx-auto">
                         <p><math><mi>a</mi><mo>=</mo><mi>{{ $hasil['a'] }}</mi></math></p>
                         <p><math><mi>b</mi><mo>=</mo><mi>{{ $hasil['b'] }}</mi></math></p>
                     </div>

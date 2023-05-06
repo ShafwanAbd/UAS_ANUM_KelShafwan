@@ -376,11 +376,11 @@
                     const ctx = document.getElementById('myChart');
 
                     // Calculate the regression line values
-                    const a = 3.25; // Intercept
-                    const b = 1.25; // Slope
+                    const a = {{ $hasil["a"] }}; // Intercept
+                    const b = {{ $hasil["b"] }}; // Slope
                     const regressionLine = []; // Array to store the regression line values
 
-                    for (let i = 0; i <= 10; i++) {
+                    for (let i = -5; i <= 5; i++) {
                         const x = i;
                         const y = a + b * x;
                         regressionLine.push(y);
@@ -391,7 +391,7 @@
                     const chartConfig = {
                         type: 'line',
                         data: {
-                            labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], // X-axis labels
+                            labels: ['-5', '-4', '-3', '-2', '-1', '0', '1', '2', '3', '4', '5'], // X-axis labels
                             datasets: [{
                                 label: 'Regresi Linear',
                                 data: regressionLine, // Regression line data
@@ -424,7 +424,7 @@
                             },
                             scales: {
                                 y: {
-                                    beginAtZero: true
+                                    beginAtZero: false
                                 }
                             }
                         }
@@ -473,7 +473,7 @@
                             const inptEndVal = $('#inptEnd').val(); 
                             const awarning = $('#awarning');
 
-                            if (!/^\d*\.?\d+$/.test(inptEndVal)){
+                            if (!/^[-]?\d*\.?\d+$/.test(inptEndVal)){
                                 awarning.removeClass('hidden');
                             } else { 
                                 awarning.addClass('animate__animated animate__fadeOut').on('animationend', function() { 
@@ -497,7 +497,7 @@
                             const inptEndVal = $('#inptEnd').val();  
                             const awarning = $('#awarning');
 
-                            if (!/^\d*\.?\d+$/.test(inptEndVal)){
+                            if (!/^[-]?\d*\.?\d+$/.test(inptEndVal)){
                                 if (awarning.hasClass('animate__fadeIn')){
                                     awarning.removeClass('hidden');
                                 }

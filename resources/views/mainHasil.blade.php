@@ -5,12 +5,12 @@
         <div class="row d-flex justify-content-end mx-0">
             <div class="position-fixed top-0 start-0 py-4 px-3 col-3">
 
-                    <div class="card shadow p-3 mb-3 ">
+                    <div class="card shadow p-3 mb-3 animate__animated animate__fadeInLeft">
                         <p>Kembali ke Home</p>
                         <a href="{{ url('/main') }}" type="submit" class="btn btn1 w-100 rounded mt-2">Kembali</a>
                     </div>
 
-                    <div class="card shadow p-3"> 
+                    <div class="card shadow p-3 animate__animated animate__fadeInLeft"> 
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Ganti Cara</label>
                             <select id="inptCara" name="cara" class="form-control background-input">
@@ -23,7 +23,7 @@
                         <button id="caraBtn" type="button" class="btn btn1 w-100 rounded mt-2">Ganti</button> 
                     </div>
             </div>
-            <div class="col-9 card shadow px-5">
+            <div class="col-9 card shadow px-5 animate__animated animate__fadeIn">
                 <p class="title h2 text-center my-3">HASIL</p>
                 <div>
                     <p class="mb-4">Berdasarkan data sebelumnya, maka dihasilkan tabel sebagai berikut:</p>
@@ -373,65 +373,74 @@
                 </div>
 
                 <script>
-                const ctx = document.getElementById('myChart');
+                    const ctx = document.getElementById('myChart');
 
-                // Calculate the regression line values
-                const a = 3.25; // Intercept
-                const b = 1.25; // Slope
-                const regressionLine = []; // Array to store the regression line values
+                    // Calculate the regression line values
+                    const a = 3.25; // Intercept
+                    const b = 1.25; // Slope
+                    const regressionLine = []; // Array to store the regression line values
 
-                for (let i = 0; i <= 10; i++) {
-                    const x = i;
-                    const y = a + b * x;
-                    regressionLine.push(y);
-                }
+                    for (let i = 0; i <= 10; i++) {
+                        const x = i;
+                        const y = a + b * x;
+                        regressionLine.push(y);
+                    }
 
-                // Chart configuration
-                let delayed;
-                const chartConfig = {
-                    type: 'line',
-                    data: {
-                        labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], // X-axis labels
-                        datasets: [{
-                            label: 'Regresi Linear',
-                            data: regressionLine, // Regression line data
-                            backgroundColor: 'rgba(146, 203, 255, 0.5)',
-                            borderColor: 'rgb(146, 203, 255)',
-                            borderWidth: 2,
-                            fill: false,
-                            pointStyle: 'circle',
-                            pointRadius: 6,
-                        }]
-                    }, 
-                    options: { 
-                        animation: {
-                            onComplete: () => {
-                                delayed = true;
+                    // Chart configuration
+                    let delayed;
+                    const chartConfig = {
+                        type: 'line',
+                        data: {
+                            labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], // X-axis labels
+                            datasets: [{
+                                label: 'Regresi Linear',
+                                data: regressionLine, // Regression line data
+                                backgroundColor: 'rgba(146, 203, 255, 0.5)',
+                                borderColor: 'rgb(146, 203, 255)',
+                                borderWidth: 2,
+                                fill: false,
+                                pointStyle: 'circle',
+                                pointRadius: 6,
+                            }]
+                        }, 
+                        options: { 
+                            animation: {
+                                onComplete: () => {
+                                    delayed = true;
+                                },
+                                delay: (context) => {
+                                    let delay = 0;
+                                    if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                                    delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                                    }
+                                    return delay;
+                                },
                             },
-                            delay: (context) => {
-                                let delay = 0;
-                                if (context.type === 'data' && context.mode === 'default' && !delayed) {
-                                delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                            responsive: true,   
+                            plugins: { 
+                                tooltip: {
+                                    usePointStyle: true,
                                 }
-                                return delay;
                             },
-                        },
-                        responsive: true,   
-                        plugins: { 
-                            tooltip: {
-                                usePointStyle: true,
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
                             }
                         }
-                    }
-                };
-
-                new Chart(ctx, chartConfig);
-
+                    }; 
+ 
+                    const chartObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            // Run chart animation
+                            chartConfig.options.animation.duration = 2000;  
+                            new Chart(ctx, chartConfig); 
+                            chartObserver.unobserve(ctx);
+                            }
+                        });
+                    });
+                    chartObserver.observe(ctx);
                 </script>
 
 
@@ -439,6 +448,11 @@
                 <p>Perkiraan nilai Y, jika X = <span>
                 <input id="inptEnd" type="text" style="width: 40px;">
                 </span>  adalah Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}X, maka:</p>
+
+                <div id="awarning" class="alert alert-warning p-2 px-3 hidden animate__animated animate__fadeIn" role="alert">
+                Masukkan hanya angka (0, 1.5, 2, ...)
+                </div>
+
                 <div id="show1" class="fst-italic w-50 mx-auto">
                     <p>Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}( ? )</p> 
                     <p>Y = ( ? )</p>
@@ -454,25 +468,56 @@
 
                 <script>
                     $(document).ready(function() {
-                        $('#btnEndInput1').on('click', function() {  
-                            $('#show1').addClass('hidden'); 
-                            $('#hidden1').removeClass('hidden');  
-                            
+                        $('#btnEndInput1').on('click', function() {   
                             const inptEnd = $('#inptEnd');
                             const inptEndVal = $('#inptEnd').val(); 
+                            const awarning = $('#awarning');
 
-                            $('#outptEnd1').html('Y = {{ $hasil["a"] }}+{{ $hasil["b"] }}(' + inptEndVal + ')');
-                            $('#outptEnd2').html('Y = {{ $hasil["a"] }}+ ' + ('{{ $hasil["b"] }}' * inptEndVal));
-                            $('#outptEnd3').html('Y = ' + ({{ $hasil["a"] }} + ({{ $hasil["b"] }} * inptEndVal)));
+                            if (!/^\d*\.?\d+$/.test(inptEndVal)){
+                                awarning.removeClass('hidden');
+                            } else { 
+                                awarning.addClass('animate__animated animate__fadeOut').on('animationend', function() { 
+                                    if (awarning.hasClass('animate__fadeOut')){
+                                        awarning.addClass('hidden');
+                                    }
+                                    awarning.toggleClass('animate__animated');
+                                    awarning.removeClass('animate__fadeOut');
+                                }) 
+                                $('#show1').addClass('hidden'); 
+                                $('#hidden1').removeClass('hidden');  
+
+                                $('#outptEnd1').html('Y = {{ $hasil["a"] }}+{{ $hasil["b"] }}(' + inptEndVal + ')');
+                                $('#outptEnd2').html('Y = {{ $hasil["a"] }}+ ' + ('{{ $hasil["b"] }}' * inptEndVal));
+                                $('#outptEnd3').html('Y = ' + ({{ $hasil["a"] }} + ({{ $hasil["b"] }} * inptEndVal)));
+                            }
                         });
 
                         $('#btnEndInput2').on('click', function() { 
                             const inptEnd = $('#inptEnd');
-                            const inptEndVal = $('#inptEnd').val(); 
- 
-                            $('#outptEnd1').html('Y = {{ $hasil["a"] }}+{{ $hasil["b"] }}(' + inptEndVal + ')');
-                            $('#outptEnd2').html('Y = {{ $hasil["a"] }}+ ' + ('{{ $hasil["b"] }}' * inptEndVal));
-                            $('#outptEnd3').html('Y = ' + ({{ $hasil["a"] }} + ({{ $hasil["b"] }} * inptEndVal)));
+                            const inptEndVal = $('#inptEnd').val();  
+                            const awarning = $('#awarning');
+
+                            if (!/^\d*\.?\d+$/.test(inptEndVal)){
+                                if (awarning.hasClass('animate__fadeIn')){
+                                    awarning.removeClass('hidden');
+                                }
+                                awarning.removeClass('animate__animated');
+                                awarning.removeClass('animate__fadeOut');
+                                awarning.addClass('animate__animated'); 
+                                awarning.addClass('animate__fadeIn'); 
+                            } else {                                  
+                                awarning.addClass('animate__animated animate__fadeOut').on('animationend', function() { 
+                                    if (awarning.hasClass('animate__fadeOut')){
+                                        awarning.addClass('hidden');
+                                    }
+                                    awarning.removeClass('animate__animated');
+                                    awarning.removeClass('animate__fadeOut');
+                                })   
+                                
+                                $('#outptEnd1').html('Y = {{ $hasil["a"] }}+{{ $hasil["b"] }}(' + inptEndVal + ')');
+                                $('#outptEnd2').html('Y = {{ $hasil["a"] }}+ ' + ('{{ $hasil["b"] }}' * inptEndVal));
+                                $('#outptEnd3').html('Y = ' + ({{ $hasil["a"] }} + ({{ $hasil["b"] }} * inptEndVal)));
+                            }                
                         });
                     });
                 </script>

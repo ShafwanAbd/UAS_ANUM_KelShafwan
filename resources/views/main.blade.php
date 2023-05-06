@@ -4,7 +4,7 @@
     <div class="container_main py-4 background-main">
         <div class="container_berapaInput flex row px-3 mx-0 d-flex justify-content-end">  
             <div class="col-3 px-3 position-fixed top-0 start-0 py-4">
-                    <div class="mb-3 card shadow p-3">
+                    <div class="mb-3 card shadow p-3 animate__animated animate__fadeInLeft">
                         <form method="GET" action="{{ url('/main/input') }}">
                         @csrf
                             <div class="mb-3">
@@ -16,7 +16,7 @@
                         </form>
                     </div>
                     
-                    <div class="card shadow p-3">
+                    <div class="card shadow p-3 animate__animated animate__fadeInLeft">
                         <form method="GET" action="{{ url('/main/input') }}">
                         @csrf
                             <div class="mb-3">
@@ -32,7 +32,7 @@
                         </form>
                     </div>
             </div>
-            <div class="col-9 card shadow">
+            <div class="col-9 card shadow animate__animated animate__fadeIn">
                 <form method="POST" action="{{ url('/main/hasil/'.$data['berapaInput'].'/'.$data['cara']) }}">
                 @csrf
                 <div class="container_input flex row p-3">

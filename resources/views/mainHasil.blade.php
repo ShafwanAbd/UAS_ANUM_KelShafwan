@@ -329,14 +329,35 @@
 
                 <script>
                     $(document).ready(function() {
-                        $('#caraBtn').on('click', function() {
+                        const caraBtn = $('#caraBtn');
+                        const caraBtnVal = $('#inptCara').val(); 
+
+                        const carake1 = $('#carake1');
+                        const carake2 = $('#carake2');
+                        const carake3 = $('#carake3');
+
+                        if (caraBtnVal === '1'){ 
+                            carake1.removeClass('hidden');
+                            carake2.addClass('hidden');
+                            carake3.addClass('hidden');
+                        } else if (caraBtnVal === '2'){ 
+                            carake1.addClass('hidden');
+                            carake2.removeClass('hidden');
+                            carake3.addClass('hidden');
+                        } else if (caraBtnVal === '3'){  
+                            carake1.addClass('hidden');
+                            carake2.addClass('hidden');
+                            carake3.removeClass('hidden');
+                        }
+
+                        $('#caraBtn').on('click', function() { 
                             const caraBtn = $('#caraBtn');
-                            const caraBtnVal = $('#inptCara').val();
-                            
+                            const caraBtnVal = $('#inptCara').val(); 
+
                             const carake1 = $('#carake1');
                             const carake2 = $('#carake2');
                             const carake3 = $('#carake3');
-
+                            
                             if (caraBtnVal === '1'){ 
                                 carake1.removeClass('hidden');
                                 carake2.addClass('hidden');
@@ -379,11 +400,16 @@
                     const a = {{ $hasil["a"] }}; // Intercept
                     const b = {{ $hasil["b"] }}; // Slope
                     const regressionLine = []; // Array to store the regression line values
+                    const xArray = [];
 
-                    for (let i = -5; i <= 5; i++) {
+                    for (let i = -20; i <= 20; i++) {
                         const x = i;
                         const y = a + b * x;
                         regressionLine.push(y);
+                    }
+
+                    for (let i = -20; i <= 20; i++){
+                        xArray.push(i);
                     }
 
                     // Chart configuration
@@ -391,7 +417,7 @@
                     const chartConfig = {
                         type: 'line',
                         data: {
-                            labels: ['-5', '-4', '-3', '-2', '-1', '0', '1', '2', '3', '4', '5'], // X-axis labels
+                            labels: xArray, // X-axis labels
                             datasets: [{
                                 label: 'Regresi Linear',
                                 data: regressionLine, // Regression line data
@@ -400,7 +426,7 @@
                                 borderWidth: 2,
                                 fill: false,
                                 pointStyle: 'circle',
-                                pointRadius: 6,
+                                pointRadius: 3,
                             }]
                         }, 
                         options: { 
@@ -411,7 +437,7 @@
                                 delay: (context) => {
                                     let delay = 0;
                                     if (context.type === 'data' && context.mode === 'default' && !delayed) {
-                                    delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                                    delay = context.dataIndex * 150 + context.datasetIndex * 25;
                                     }
                                     return delay;
                                 },
@@ -423,8 +449,39 @@
                                 }
                             },
                             scales: {
+                                x: {
+                                    min: -20,
+                                    max: 20,
+                                    title: {
+                                        display: true,
+                                        text: 'X Value'
+                                    },
+                                    grid: {
+                                        display: true, 
+                                        color: function(context){
+                                            if (context.tick.value == 20){
+                                                return '#555';
+                                            }
+                                            return '#ccc';
+                                        }
+                                    }
+                                },
                                 y: {
-                                    beginAtZero: false
+                                    min: -20,
+                                    max: 20, 
+                                    title: {
+                                        display: true,
+                                        text: 'Y Value'
+                                    },
+                                    grid: {
+                                        display: true, 
+                                        color: function(context){
+                                            if (context.tick.value == 0){
+                                                return '#555';
+                                            }
+                                            return '#ccc';
+                                        }
+                                    }
                                 }
                             }
                         }

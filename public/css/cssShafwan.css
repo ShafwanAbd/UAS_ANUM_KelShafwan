@@ -72,6 +72,10 @@ math {
     font-style: italic;
 }
 
+.not-italic {
+    font-style: normal;
+}
+
 #inptEnd {
     outline: none;
     border: none;

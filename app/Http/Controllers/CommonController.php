@@ -99,7 +99,6 @@ class CommonController extends Controller
 
         return view('mainHasil', compact(
             'data', 'hasil'
-        ));  
-
-    }
+        ));   
+    } 
 }

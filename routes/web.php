@@ -9,4 +9,4 @@ Route::get('/', function () {
 
 Route::get('/main', [CommonController::class, 'main_index']);
 Route::get('/main/input', [CommonController::class, 'mainInput']);
-Route::post('/main/hasil/{berapaInput}/{cara}', [CommonController::class, 'mainInputHasil']);
+Route::post('/main/hasil/{berapaInput}/{cara}', [CommonController::class, 'mainInputHasil']); 

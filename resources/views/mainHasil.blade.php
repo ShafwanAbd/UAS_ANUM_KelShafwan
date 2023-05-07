@@ -152,7 +152,7 @@
                                     <mi>{{ (($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) }}</mi>
                                 </math>
                             </div>
-                        </div>
+                        </div> 
                     </div>
                 </div>
 
@@ -164,20 +164,20 @@
                             <mrow>
                                 <mo>(</mo>
                                     <mfrac linethickness="0" class="px-2">
-                                        <mn class="mb-2">8</mn>
-                                        <mn>8</mn>
+                                        <mn class="mb-2">{{ $data['berapaInput'] }}</mn>
+                                        <mn>{{ $hasil['xtotal'] }}</mn>
                                     </mfrac>
                                     <mfrac linethickness="0" class="px-2">
-                                        <mn class="mb-2">8</mn>
-                                        <mn>8</mn>
+                                        <mn class="mb-2">{{ $hasil['xtotal'] }}</mn>
+                                        <mn>{{ $hasil['x2total'] }}</mn>
                                     </mfrac>
                                 <mo>)</mo>
                             </mrow>
                             <mrow>
                                 <mo>(</mo>
                                     <mfrac linethickness="0" class="px-2 py-1">
-                                        <mo class="mb-2">a</mo>
-                                        <mo>b</mo>
+                                        <mi class="mb-2">a</mi>
+                                        <mi>b</mi>
                                     </mfrac>
                                 <mo>)</mo>
                             </mrow>
@@ -185,8 +185,8 @@
                             <mrow>
                                 <mo>(</mo>
                                     <mfrac linethickness="0" class="px-2 py-1">
-                                        <mo class="mb-2">69</mo>
-                                        <mo>4</mo>
+                                        <mo class="mb-2">{{ $hasil['ytotal'] }}</mo>
+                                        <mo>{{ $hasil['xytotal'] }}</mo>
                                     </mfrac>
                                 <mo>)</mo>
                             </mrow>
@@ -195,20 +195,22 @@
 
                     <div class="my-4 w-75 mx-auto">
                         <math>
+                            
                             <mrow>
                                 <mo>A</mo><mo>=</mo>
                                 <mo>(</mo>
                                     <mfrac linethickness="0" class="px-2">
-                                        <mn class="mb-2">8</mn>
-                                        <mn>8</mn>
+                                        <mn class="mb-2">{{ $data['berapaInput'] }}</mn>
+                                        <mn>{{ $hasil['xtotal'] }}</mn>
                                     </mfrac>
                                     <mfrac linethickness="0" class="px-2">
-                                        <mn class="mb-2">8</mn>
-                                        <mn>8</mn>
+                                        <mn class="mb-2">{{ $hasil['xtotal'] }}</mn>
+                                        <mn>{{ $hasil['x2total'] }}</mn>
                                     </mfrac>
                                 <mo>)</mo>
                             </mrow>
-                            <mrow class="px-2">
+
+                            <mrow class="px-5">
                                 <msub>                                                                   
                                     <mi>A</mi>
                                     <mn>1</mn>
@@ -216,15 +218,16 @@
                                 <mo>=</mo>
                                 <mo>(</mo>
                                     <mfrac linethickness="0" class="px-2">
-                                        <mn class="mb-2">8</mn>
-                                        <mn>8</mn>
+                                        <mn class="mb-2">{{ $hasil['ytotal'] }}</mn>
+                                        <mn>{{ $hasil['xytotal'] }}</mn>
                                     </mfrac>
                                     <mfrac linethickness="0" class="px-2">
-                                        <mn class="mb-2">8</mn>
-                                        <mn>8</mn>
+                                        <mn class="mb-2">{{ $hasil['xtotal'] }}</mn>
+                                        <mn>{{ $hasil['x2total'] }}</mn>
                                     </mfrac>
                                 <mo>)</mo>
                             </mrow>
+
                             <mrow>
                                 <msub>                                                                   
                                     <mi>A</mi>
@@ -233,12 +236,12 @@
                                 <mo>=</mo>
                                 <mo>(</mo>
                                     <mfrac linethickness="0" class="px-2">
-                                        <mn class="mb-2">8</mn>
-                                        <mn>8</mn>
+                                        <mn class="mb-2">{{ $data['berapaInput'] }}</mn>
+                                        <mn>{{ $hasil['xtotal'] }}</mn>
                                     </mfrac>
                                     <mfrac linethickness="0" class="px-2">
-                                        <mn class="mb-2">8</mn>
-                                        <mn>8</mn>
+                                        <mn class="mb-2">{{ $hasil['ytotal'] }}</mn>
+                                        <mn>{{ $hasil['xytotal'] }}</mn>
                                     </mfrac>
                                 <mo>)</mo>
                             </mrow>
@@ -246,17 +249,21 @@
                     </div>
 
                     <div class="w-50 mx-auto text-start">
+
                         <div>
-                            <math>                                                                   
-                                <mi>det A</mi><mo>=</mo>
-                                <mo>(</mo><mn>8</mn><mo>)</mo>
-                                <mo>(</mo><mn>96</mn><mo>)</mo>
-                                <mo>-</mo>
-                                <mo>(</mo><mn>24</mn><mo>-</mo><mn>26</mn><mo>)</mo>
+                            <math>                                                                        
+                                <mo>det A</mo> 
                                 <mo>=</mo>
-                                <mn>342</mn>
+                                <mo>(</mo><mn>{{ $data['berapaInput'] }}</mn><mo>)</mo>
+                                <mo>(</mo><mn>{{ $hasil['x2total'] }}</mn><mo>)</mo>
+                                <mo>-</mo>
+                                <mo>(</mo><mn>{{ $hasil['xtotal'] }}</mn><mo>)</mo>
+                                <mo>(</mo><mn>{{ $hasil['xtotal'] }}</mn><mo>)</mo>
+                                <mo>=</mo>
+                                <mn>{{ ($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal']) }}</mn>
                             </math>
                         </div>
+
                         <div>
                             <math>                                                                   
                                 <msub>                                                                   
@@ -264,15 +271,16 @@
                                     <mn>1</mn>
                                 </msub>
                                 <mo>=</mo>
-                                <mo>(</mo><mn>8</mn><mo>)</mo>
-                                <mo>(</mo><mn>96</mn><mo>)</mo>
+                                <mo>(</mo><mn>{{ $hasil['ytotal'] }}</mn><mo>)</mo>
+                                <mo>(</mo><mn>{{ $hasil['x2total'] }}</mn><mo>)</mo>
                                 <mo>-</mo>
-                                <mo>(</mo><mn>24</mn><mo>)</mo>
-                                <mo>(</mo><mn>198</mn><mo>)</mo>
+                                <mo>(</mo><mn>{{ $hasil['xtotal'] }}</mn><mo>)</mo>
+                                <mo>(</mo><mn>{{ $hasil['xytotal'] }}</mn><mo>)</mo>
                                 <mo>=</mo>
-                                <mn>342</mn>
+                                <mn>{{ ($hasil['ytotal'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xytotal']) }}</mn>
                             </math>
                         </div>
+
                         <div>
                             <math>
                                 <msub>                                                                   
@@ -280,12 +288,13 @@
                                     <mn>2</mn>
                                 </msub>
                                 <mo>=</mo>
-                                <mo>(</mo><mn>8</mn><mo>)</mo>
-                                <mo>(</mo><mn>96</mn><mo>)</mo>
+                                <mo>(</mo><mn>{{ $data['berapaInput'] }}</mn><mo>)</mo>
+                                <mo>(</mo><mn>{{ $hasil['xytotal'] }}</mn><mo>)</mo>
                                 <mo>-</mo>
-                                <mo>(</mo><mn>24</mn><mo>-</mo><mn>26</mn><mo>)</mo>
+                                <mo>(</mo><mn>{{ $hasil['ytotal'] }}</mn><mo>)</mo> 
+                                <mo>(</mo><mn>{{ $hasil['xtotal'] }}</mn><mo>)</mo>
                                 <mo>=</mo>
-                                <mn>342</mn>
+                                <mn>{{ ($data['berapaInput'] * $hasil['xytotal']) - ($hasil['ytotal'] * $hasil['xtotal']) }}</mn>
                             </math>
                         </div>
                     </div>
@@ -296,11 +305,11 @@
                                 <mi>a</mi>
                                 <mo>=</mo>
                                 <mfrac>
-                                    <mi>324</mi>
-                                    <mi>123</mi>
+                                    <mi>{{ ($hasil['ytotal'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xytotal']) }}</mi>
+                                    <mi>{{ ($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal']) }}</mi>
                                 </mfrac>
                                 <mo>=</mo>
-                                <mn>890</mn>
+                                <mn>{{ (($hasil['ytotal'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) }}</mn>
                             </math>
                         </div>
                         <div class="">
@@ -308,15 +317,13 @@
                                 <mi>b</mi>
                                 <mo>=</mo>
                                 <mfrac>
-                                    <mi>324</mi>
-                                    <mi>123</mi>
+                                    <mi>{{ ($data['berapaInput'] * $hasil['xytotal']) - ($hasil['ytotal'] * $hasil['xtotal']) }}</mi>
+                                    <mi>{{ ($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal']) }}</mi>
                                 </mfrac>
                                 <mo>=</mo>
-                                <mn>890</mn>
+                                <mn>{{ (($data['berapaInput'] * $hasil['xytotal']) - ($hasil['ytotal'] * $hasil['xtotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) }}</mn>
                             </math>
-                        </div>
-
-
+                        </div> 
                     </div>
                 </div>
 

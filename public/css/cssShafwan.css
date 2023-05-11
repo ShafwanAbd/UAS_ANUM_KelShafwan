@@ -32,6 +32,10 @@ body {
     letter-spacing: 5px;
 }
 
+.t-primary {
+    color: #92cbff;
+}
+
 .btn1 {
     background-color: #92cbff;
     color: #fff;

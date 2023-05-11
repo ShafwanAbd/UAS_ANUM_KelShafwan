@@ -24,7 +24,7 @@
                     </div>
             </div>
             <div class="col-9 card shadow px-5 animate__animated animate__fadeIn">
-                <p class="title h2 text-center my-3">HASIL</p>
+                <p class="title h2 text-center my-3 t-primary">HASIL</p>
                 <div>
                     <p class="mb-4">Berdasarkan data sebelumnya, maka dihasilkan tabel sebagai berikut:</p>
                     <table class="table w-50 mx-auto background-table2 text-center">

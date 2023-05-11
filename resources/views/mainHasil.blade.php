@@ -104,7 +104,7 @@
                                 <math>
                                     <mi>a</mi>
                                     <mo>=</mo>
-                                    <mi>{{ (($hasil['ytotal'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) }}</mi>
+                                    <mi>{{ number_format((($hasil['ytotal'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])), 2) }}</mi>
                                 </math>
                             </div>
                         </div>
@@ -149,7 +149,7 @@
                                 <math>
                                     <mi>b</mi>
                                     <mo>=</mo>
-                                    <mi>{{ (($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) }}</mi>
+                                    <mi>{{ number_format((($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])), 2) }}</mi>
                                 </math>
                             </div>
                         </div> 
@@ -309,7 +309,7 @@
                                     <mi>{{ ($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal']) }}</mi>
                                 </mfrac>
                                 <mo>=</mo>
-                                <mn>{{ (($hasil['ytotal'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) }}</mn>
+                                <mn>{{ number_format((($hasil['ytotal'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])), 2) }}</mn>
                             </math>
                         </div>
                         <div class="">
@@ -321,7 +321,7 @@
                                     <mi>{{ ($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal']) }}</mi>
                                 </mfrac>
                                 <mo>=</mo>
-                                <mn>{{ (($data['berapaInput'] * $hasil['xytotal']) - ($hasil['ytotal'] * $hasil['xtotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) }}</mn>
+                                <mn>{{ number_format((($data['berapaInput'] * $hasil['xytotal']) - ($hasil['ytotal'] * $hasil['xtotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])), 2) }}</mn>
                             </math>
                         </div> 
                     </div>
@@ -371,7 +371,7 @@
                                 <math>
                                     <mi>b</mi>
                                     <mo>=</mo>
-                                    <mi>{{ (($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) }}</mi>
+                                    <mi>{{ number_format((($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal'])) / (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])), 2) }}</mi>
                                 </math>
                             </div>
                         </div>
@@ -395,7 +395,7 @@
                                 <math>
                                     <mi>a</mi>
                                     <mo>=</mo>
-                                    <mi>{{ $hasil['yrata'] - ($hasil['b'] * $hasil['xrata']) }}</mi>
+                                    <mi>{{ number_format($hasil['yrata'] - ($hasil['b'] * $hasil['xrata']), 2) }}</mi>
                                 </math>
                             </div> 
                         </div> 
@@ -453,18 +453,131 @@
                 <div class="my-4">
                     <p class="mb-4">Sehingga dapat diperoleh nilai sebagai berikut:</p>
                     <div class="d-flex justify-content-evenly w-75 mx-auto">
-                        <p><math><mi>a</mi><mo>=</mo><mi>{{ $hasil['a'] }}</mi></math></p>
-                        <p><math><mi>b</mi><mo>=</mo><mi>{{ $hasil['b'] }}</mi></math></p>
+                        <p><math><mi>a</mi><mo>=</mo><mi>{{ number_format($hasil['a'], 2) }}</mi></math></p>
+                        <p><math><mi>b</mi><mo>=</mo><mi>{{ number_format($hasil['b'], 2) }}</mi></math></p>
                     </div>
                 </div>
 
                 <div class="my-4">
                     <p class="mb-4">Persamaan regresi linearnya adalah: </p>
-                    <p class="text-center fst-italic"><math><mi>Y</mi><mo>=</mo><mi>{{ $hasil['a'] }} + {{ $hasil['b'] }}x</mi></math></p>
+                    <p class="text-center fst-italic"><math><mi>Y</mi><mo>=</mo><mi>{{ number_format($hasil['a'], 2) }} + {{ number_format($hasil['b'], 2) }}x</mi></math></p>
                 </div>
 
                 <div class="my-4">
-                    <p class="mb-4">Sehingga didapatkan grapiknya sebagai berikut: </p>
+                    <p class="mb-4">Koefisien Determinasinya adalah:</p>
+
+                    <div class="d-flex justify-content-evenly w-75 mx-auto">
+                        <div class="">
+                            <div>
+                                <math>
+                                    <mi>R</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <msup>
+                                            <mrow>                                        
+                                                <mi>(({{ $data['berapaInput'] }})({{ $hasil['xytotal'] }})-({{ $hasil['xtotal'] }})({{ $hasil['ytotal'] }}))</mi>
+                                            </mrow>
+                                            <mn>2</mn>
+                                        </msup>
+                                        <msup>
+                                            <mrow> 
+                                                <mn>({{ $data['berapaInput'] }}({{ $hasil['x2total'] }})-</mn>  
+                                                <msup><mn>({{ $hasil['xtotal'] }})</mn><mn>2</mn></msup> 
+                                                <mn>)</mn> 
+
+                                                <mn>({{ $data['berapaInput'] }}({{ $hasil['y2total'] }})-</mn>  
+                                                <msup><mn>({{ $hasil['ytotal'] }})</mn><mn>2</mn></msup> 
+                                                <mn>)</mn>
+                                            </mrow>
+                                        </msup>
+                                    </mfrac>
+                                </math>
+                            </div>
+
+                            <div class="my-4">
+                                <math> 
+                                    <mi>R</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <msup>
+                                            <mrow>                                        
+                                                <mi>({{ $data['berapaInput'] * $hasil['xytotal'] }}-{{ $hasil['xtotal'] * $hasil['ytotal'] }})</mi>
+                                            </mrow>
+                                            <mn>2</mn>
+                                        </msup>
+                                        <msup>
+                                            <mrow> 
+                                                <mn>({{ $data['berapaInput'] * $hasil['x2total'] }}-</mn>  
+                                                <mn>{{ $hasil['xtotal'] * $hasil['xtotal'] }})</mn> 
+
+                                                <mn>({{ $data['berapaInput'] * $hasil['y2total'] }}-</mn>  
+                                                <mn>{{ $hasil['ytotal'] * $hasil['ytotal'] }})</mn> 
+                                            </mrow>
+                                        </msup>
+                                    </mfrac>                                
+                                </math>
+                            </div>
+
+                            <div class="my-4">
+                                <math> 
+                                    <mi>R</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <msup>
+                                            <mrow>                                        
+                                                <mi>({{ ($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal']) }})</mi>
+                                            </mrow>
+                                            <mn>2</mn>
+                                        </msup>
+                                        <msup>
+                                            <mrow> 
+                                                <mn>({{ ($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal']) }})</mn> 
+
+                                                <mn>({{ ($data['berapaInput'] * $hasil['y2total']) - ($hasil['ytotal'] * $hasil['ytotal']) }})</mn> 
+                                            </mrow>
+                                        </msup>
+                                    </mfrac>                                
+                                </math>
+                            </div>
+
+                            <div class="my-4">
+                                <math> 
+                                    <mi>R</mi>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <msup>
+                                            <mrow>
+                                                <mi>{{ (($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal'])) * (($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal'])) }}</mi>
+                                            </mrow> 
+                                        </msup>
+                                        <msup>
+                                            <mrow>
+                                                <mn>{{ (($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) * (($data['berapaInput'] * $hasil['y2total']) - ($hasil['ytotal'] * $hasil['ytotal'])) }}</mn> 
+                                            </mrow>
+                                        </msup>
+                                    </mfrac>
+                                </math>
+                            </div>
+
+                            <div class="my-4">
+                                <math> 
+                                    <mi>R</mi>
+                                    <mo>=</mo>
+                                    <mn>{{ number_format(((($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal'])) * (($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal']))) / ((($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) * (($data['berapaInput'] * $hasil['y2total']) - ($hasil['ytotal'] * $hasil['ytotal']))), 4) }}</mn> 
+                                </math>
+                            </div>
+                        </div> 
+                    </div>
+
+                    @php $r2 = number_format(((($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal'])) * (($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal']))) / ((($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) * (($data['berapaInput'] * $hasil['y2total']) - ($hasil['ytotal'] * $hasil['ytotal']))), 4) @endphp
+
+                <p class="px-5">Nilai determinasi (<math><msup><mn>R</mn><mn>2</mn></msup></math>) sebesar {{ $r2 }}, artinya pengaruh X terhadap naik
+                turunnya Y adalah sebesar {{ $r2 * 100 }}%. Sisanya {{ 100 - ($r2 * 100) }}% Disebabkan oleh faktor lain.</p>
+
+                </div>
+
+                <div class="my-4">
+                    <p class="mb-4">Untuk grapiknya didapatkan sebagai berikut: </p>
                     <canvas id="myChart"></canvas>
                 </div>
 
@@ -579,22 +692,22 @@
                 <div class="my-4 card p-3 background3"> 
                 <p>Perkiraan nilai Y, jika X = <span>
                 <input id="inptEnd" type="text" style="width: 40px;">
-                </span>  adalah Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}X, maka:</p>
+                </span>  adalah Y = {{ number_format($hasil['a'], 2) }}+{{ number_format($hasil['b'], 2) }}X, maka:</p>
 
                 <div id="awarning" class="alert alert-warning p-2 px-3 hidden animate__animated animate__fadeIn" role="alert">
                 Masukkan hanya angka (0, 1.5, 2, ...)
                 </div>
 
                 <div id="show1" class="fst-italic w-50 mx-auto">
-                    <p>Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}( ? )</p> 
+                    <p>Y = {{ number_format($hasil['a'], 2) }}+{{ number_format($hasil['b'], 2) }}( ? )</p> 
                     <p>Y = ( ? )</p>
                     <button id="btnEndInput1" type="button" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Submit</button>
                 </div>
 
                 <div id="hidden1" class="fst-italic w-50 mx-auto hidden">
-                    <p id="outptEnd1">Y = {{ $hasil['a'] }}+{{ $hasil['b'] }}(  )</p>
-                    <p id="outptEnd2">Y = {{ $hasil['a'] }}+{{ $hasil['b'] * 3.5}}</p>
-                    <p id="outptEnd3">Y = {{ $hasil['a'] + $hasil['b'] * 3.5 }}</p>
+                    <p id="outptEnd1">Y = {{ number_format($hasil['a'], 2) }}+{{ number_format($hasil['b'], 2) }}(  )</p>
+                    <p id="outptEnd2">Y = {{ number_format($hasil['a'], 2) }}+{{ number_format($hasil['b'], 2) * 3.5}}</p>
+                    <p id="outptEnd3">Y = {{ number_format($hasil['a'], 2) + number_format($hasil['b'], 2) * 3.5 }}</p>
                     <button id="btnEndInput2" type="button" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Submit</button>
                 </div>
 
@@ -618,9 +731,9 @@
                                 $('#show1').addClass('hidden'); 
                                 $('#hidden1').removeClass('hidden');  
 
-                                $('#outptEnd1').html('Y = {{ $hasil["a"] }}+{{ $hasil["b"] }}(' + inptEndVal + ')');
-                                $('#outptEnd2').html('Y = {{ $hasil["a"] }}+ ' + ('{{ $hasil["b"] }}' * inptEndVal));
-                                $('#outptEnd3').html('Y = ' + ({{ $hasil["a"] }} + ({{ $hasil["b"] }} * inptEndVal)));
+                                $('#outptEnd1').html('Y = {{ number_format($hasil["a"], 2) }}+{{ number_format($hasil["b"], 2) }}(' + inptEndVal + ')');
+                                $('#outptEnd2').html('Y = {{ number_format($hasil["a"], 2) }}+ ' + ('{{ number_format($hasil["b"], 2) }}' * inptEndVal));
+                                $('#outptEnd3').html('Y = ' + ({{ number_format($hasil["a"], 2) }} + ({{ number_format($hasil["b"], 2) }} * inptEndVal)));
                             }
                         });
 
@@ -646,9 +759,9 @@
                                     awarning.removeClass('animate__fadeOut');
                                 })   
                                 
-                                $('#outptEnd1').html('Y = {{ $hasil["a"] }}+{{ $hasil["b"] }}(' + inptEndVal + ')');
-                                $('#outptEnd2').html('Y = {{ $hasil["a"] }}+ ' + ('{{ $hasil["b"] }}' * inptEndVal));
-                                $('#outptEnd3').html('Y = ' + ({{ $hasil["a"] }} + ({{ $hasil["b"] }} * inptEndVal)));
+                                $('#outptEnd1').html('Y = {{ number_format($hasil["a"], 2) }}+{{ number_format($hasil["b"], 2) }}(' + inptEndVal + ')');
+                                $('#outptEnd2').html('Y = {{ number_format($hasil["a"], 2) }}+ ' + ('{{ number_format($hasil["b"], 2) }}' * inptEndVal));
+                                $('#outptEnd3').html('Y = ' + ({{ number_format($hasil["a"], 2) }} + ({{ number_format($hasil["b"], 2) }} * inptEndVal)));
                             }                
                         });
                     });

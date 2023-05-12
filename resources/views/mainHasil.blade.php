@@ -2,31 +2,36 @@
 
 @section('content')
     <div class="container_main background-main py-4 px-3">
+        
         <div class="row d-flex justify-content-end mx-0">
+
             <div class="position-fixed top-0 start-0 py-4 px-3 col-3">
 
                     <div class="card shadow p-3 mb-3 animate__animated animate__fadeInLeft">
-                        <p>Kembali ke Home</p>
-                        <a href="{{ url('/main') }}" type="submit" class="btn btn1 w-100 rounded mt-2">Kembali</a>
+                        <p class="mb-0">Kembali ke Home</p>                            
+                        <div class="mt-1 fs-c-10">Tekan 'Kembali' untuk Kembali ke Menu Utama.</div>
+                        <a href="{{ url('/main') }}" type="submit" class="btn btn1 w-100 rounded mt-3">Kembali</a>
                     </div>
 
                     <div class="card shadow p-3 animate__animated animate__fadeInLeft"> 
-                        <div class="mb-3">
+                        <div class="mb-1">
                             <label for="exampleFormControlInput1" class="form-label">Ganti Cara</label>
                             <select id="inptCara" name="cara" class="form-control background-input">
                                 <option value="1" {{ $data['cara'] == '1' ? 'selected' : '' }}>1</option>
                                 <option value="2" {{ $data['cara'] == '2' ? 'selected' : '' }}>2</option>
                                 <option value="3" {{ $data['cara'] == '3' ? 'selected' : '' }}>3</option>
                             </select>
+                            <div class="mt-1 fs-c-10">Silahkan Pilih Cara Keberapa untuk Cara Pengerjaannya.</div>
                         </div>
                         <input type="hidden" name="berapaInput" value="{{ $data['berapaInput'] }}"> 
                         <button id="caraBtn" type="button" class="btn btn1 w-100 rounded mt-2">Ganti</button> 
                     </div>
             </div>
-            <div class="col-9 card shadow px-5 animate__animated animate__fadeIn">
+
+            <div class="col-9 card shadow px-5 py-3 animate__animated animate__fadeIn">
                 <p class="title h2 text-center my-3 t-primary">HASIL</p>
                 <div>
-                    <p class="mb-4">Berdasarkan data sebelumnya, maka dihasilkan tabel sebagai berikut:</p>
+                    <p class="mx-5 my-4">Berdasarkan Data Sebelumnya, Maka Dihasilkan Tabel Sebagai Berikut:</p>
                     <table class="table w-50 mx-auto background-table2 text-center">
                         <thead class="">
                             <tr>
@@ -62,7 +67,7 @@
 
                 <!-- CARA KE-1 -->
                 <div id="carake1" class="my-4">
-                    <p class="mb-4">Berdasarkan Cara ke-1, maka proses pengerjaan dapat diuraikan seperti berikut: </p>
+                    <p class="mx-5 mb-4">Berdasarkan Cara ke-1, Maka Proses Pengerjaan Dapat Diuraikan Seperti Berikut: </p>
                     <div class="d-flex justify-content-evenly w-75 mx-auto">
                         <div class="">
                             <div>
@@ -158,11 +163,11 @@
 
                 <!-- CARA KE-2 -->
                 <div id="carake2" class="my-4 hidden text-center">
-                    <p class="mb-4 text-start">Berdasarkan Cara ke-2, maka proses pengerjaan dapat diuraikan seperti berikut: </p>
+                    <p class="mx-5 mb-4 text-start">Berdasarkan Cara ke-2, Maka Proses Pengerjaan Dapat Diuraikan Seperti Berikut: </p>
                     <div class="w-50 mx-auto">
                         <math>
                             <mrow>
-                                <mo>(</mo>
+                                <mo class="fst-normal">(</mo>
                                     <mfrac linethickness="0" class="px-2">
                                         <mn class="mb-2">{{ $data['berapaInput'] }}</mn>
                                         <mn>{{ $hasil['xtotal'] }}</mn>
@@ -171,24 +176,24 @@
                                         <mn class="mb-2">{{ $hasil['xtotal'] }}</mn>
                                         <mn>{{ $hasil['x2total'] }}</mn>
                                     </mfrac>
-                                <mo>)</mo>
+                                <mo class="fst-normal">)</mo>
                             </mrow>
                             <mrow>
-                                <mo>(</mo>
+                                <mo class="fst-normal">(</mo>
                                     <mfrac linethickness="0" class="px-2 py-1">
                                         <mi class="mb-2">a</mi>
                                         <mi>b</mi>
                                     </mfrac>
-                                <mo>)</mo>
+                                <mo class="fst-normal">)</mo>
                             </mrow>
                             <mo>=</mo>
                             <mrow>
-                                <mo>(</mo>
+                                <mo class="fst-normal">(</mo>
                                     <mfrac linethickness="0" class="px-2 py-1">
                                         <mo class="mb-2">{{ $hasil['ytotal'] }}</mo>
                                         <mo>{{ $hasil['xytotal'] }}</mo>
                                     </mfrac>
-                                <mo>)</mo>
+                                <mo class="fst-normal">)</mo>
                             </mrow>
                         </math>
                     </div>
@@ -198,7 +203,7 @@
                             
                             <mrow>
                                 <mo>A</mo><mo>=</mo>
-                                <mo>(</mo>
+                                <mo class="fst-normal">(</mo>
                                     <mfrac linethickness="0" class="px-2">
                                         <mn class="mb-2">{{ $data['berapaInput'] }}</mn>
                                         <mn>{{ $hasil['xtotal'] }}</mn>
@@ -207,7 +212,7 @@
                                         <mn class="mb-2">{{ $hasil['xtotal'] }}</mn>
                                         <mn>{{ $hasil['x2total'] }}</mn>
                                     </mfrac>
-                                <mo>)</mo>
+                                <mo class="fst-normal">)</mo>
                             </mrow>
 
                             <mrow class="px-5">
@@ -216,7 +221,7 @@
                                     <mn>1</mn>
                                 </msub>
                                 <mo>=</mo>
-                                <mo>(</mo>
+                                <mo class="fst-normal">(</mo>
                                     <mfrac linethickness="0" class="px-2">
                                         <mn class="mb-2">{{ $hasil['ytotal'] }}</mn>
                                         <mn>{{ $hasil['xytotal'] }}</mn>
@@ -225,7 +230,7 @@
                                         <mn class="mb-2">{{ $hasil['xtotal'] }}</mn>
                                         <mn>{{ $hasil['x2total'] }}</mn>
                                     </mfrac>
-                                <mo>)</mo>
+                                <mo class="fst-normal">)</mo>
                             </mrow>
 
                             <mrow>
@@ -234,7 +239,7 @@
                                     <mn>2</mn>
                                 </msub>
                                 <mo>=</mo>
-                                <mo>(</mo>
+                                <mo class="fst-normal">(</mo>
                                     <mfrac linethickness="0" class="px-2">
                                         <mn class="mb-2">{{ $data['berapaInput'] }}</mn>
                                         <mn>{{ $hasil['xtotal'] }}</mn>
@@ -243,7 +248,7 @@
                                         <mn class="mb-2">{{ $hasil['ytotal'] }}</mn>
                                         <mn>{{ $hasil['xytotal'] }}</mn>
                                     </mfrac>
-                                <mo>)</mo>
+                                <mo class="fst-normal">)</mo>
                             </mrow>
                         </math>
                     </div>
@@ -329,7 +334,7 @@
 
                 <!-- CARA KE-3 -->
                 <div id="carake3" class="my-4 hidden">
-                    <p class="mb-4">Berdasarkan Cara ke-3, maka proses pengerjaan dapat diuraikan seperti berikut: </p>
+                    <p class="mx-5 mb-4">Berdasarkan Cara ke-3, Maka Proses Pengerjaan Dapat Diuraikan Seperti Berikut: </p>
                     <div class="d-flex justify-content-evenly w-75 mx-auto">
                         <div class="">
                             <div>
@@ -451,7 +456,7 @@
                 </script>
 
                 <div class="my-4">
-                    <p class="mb-4">Sehingga dapat diperoleh nilai sebagai berikut:</p>
+                    <p class="mx-5 mb-4">Sehingga Dapat Diperoleh Nilai Sebagai Berikut:</p>
                     <div class="d-flex justify-content-evenly w-75 mx-auto">
                         <p><math><mi>a</mi><mo>=</mo><mi>{{ number_format($hasil['a'], 2) }}</mi></math></p>
                         <p><math><mi>b</mi><mo>=</mo><mi>{{ number_format($hasil['b'], 2) }}</mi></math></p>
@@ -459,12 +464,12 @@
                 </div>
 
                 <div class="my-4">
-                    <p class="mb-4">Persamaan regresi linearnya adalah: </p>
+                    <p class="mx-5 mb-4">Persamaan Regresi Linearnya Adalah: </p>
                     <p class="text-center fst-italic"><math><mi>Y</mi><mo>=</mo><mi>{{ number_format($hasil['a'], 2) }} + {{ number_format($hasil['b'], 2) }}x</mi></math></p>
                 </div>
 
                 <div class="my-4">
-                    <p class="mb-4">Koefisien Determinasinya adalah:</p>
+                    <p class="mx-5 mb-4">Koefisien Determinasinya Adalah:</p>
 
                     <div class="d-flex justify-content-evenly w-75 mx-auto">
                         <div class="">
@@ -571,13 +576,13 @@
 
                     @php $r2 = number_format(((($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal'])) * (($data['berapaInput'] * $hasil['xytotal']) - ($hasil['xtotal'] * $hasil['ytotal']))) / ((($data['berapaInput'] * $hasil['x2total']) - ($hasil['xtotal'] * $hasil['xtotal'])) * (($data['berapaInput'] * $hasil['y2total']) - ($hasil['ytotal'] * $hasil['ytotal']))), 4) @endphp
 
-                <p class="px-5">Nilai determinasi (<math><msup><mn>R</mn><mn>2</mn></msup></math>) sebesar {{ $r2 }}, artinya pengaruh X terhadap naik
+                <p class="mx-5 px-5">Nilai determinasi (<math><msup><mn>R</mn><mn>2</mn></msup></math>) sebesar {{ $r2 }}, artinya pengaruh X terhadap naik
                 turunnya Y adalah sebesar {{ $r2 * 100 }}%. Sisanya {{ 100 - ($r2 * 100) }}% Disebabkan oleh faktor lain.</p>
 
                 </div>
 
                 <div class="my-4">
-                    <p class="mb-4">Untuk grapiknya didapatkan sebagai berikut: </p>
+                    <p class="mx-5 mb-4">Untuk Grapiknya Didapatkan Sebagai Berikut: </p>
                     <canvas id="myChart"></canvas>
                 </div>
 
@@ -690,86 +695,95 @@
 
 
                 <div class="my-4 card p-3 background3"> 
-                <p>Perkiraan nilai Y, jika X = <span>
-                <input id="inptEnd" type="text" style="width: 40px;">
-                </span>  adalah Y = {{ number_format($hasil['a'], 2) }}+{{ number_format($hasil['b'], 2) }}X, maka:</p>
+                    <p class="mx-5 mb-0">Perkiraan nilai Y, jika X = <span>
+                    <input id="inptEnd" type="text" style="width: 40px;">
+                    </span>  adalah Y = {{ number_format($hasil['a'], 2) }}+{{ number_format($hasil['b'], 2) }}X, maka:</p>
+                    <div class="mx-5 mt-1 mb-3 fs-c-10">Untuk Mendapatkan Nilai Y, Silahkan Masukkan Nilai X (Bilangan Bulat / Bilangan Desimal).</div>
 
-                <div id="awarning" class="alert alert-warning p-2 px-3 hidden animate__animated animate__fadeIn" role="alert">
-                Masukkan hanya angka (0, 1.5, 2, ...)
-                </div>
+                    <div id="awarning" class="mx-5 alert alert-warning p-2 px-3 hidden animate__animated animate__fadeIn" role="alert">
+                        Masukkan hanya angka (-6, 0, 2, 6.5, ...)
+                    </div>
 
-                <div id="show1" class="fst-italic w-50 mx-auto">
-                    <p>Y = {{ number_format($hasil['a'], 2) }}+{{ number_format($hasil['b'], 2) }}( ? )</p> 
-                    <p>Y = ( ? )</p>
-                    <button id="btnEndInput1" type="button" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Submit</button>
-                </div>
+                    <div id="show1">
+                        <div class="fst-italic w-50 mx-auto">
+                            <p>Y = {{ number_format($hasil['a'], 2) }}+{{ number_format($hasil['b'], 2) }}( ? )</p> 
+                            <p>Y = ( ? )</p>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button id="btnEndInput1" type="button" class="btn btn1 px-5 rounded text-end">Submit</button>
+                        </div>
+                    </div>
 
-                <div id="hidden1" class="fst-italic w-50 mx-auto hidden">
-                    <p id="outptEnd1">Y = {{ number_format($hasil['a'], 2) }}+{{ number_format($hasil['b'], 2) }}(  )</p>
-                    <p id="outptEnd2">Y = {{ number_format($hasil['a'], 2) }}+{{ number_format($hasil['b'], 2) * 3.5}}</p>
-                    <p id="outptEnd3">Y = {{ number_format($hasil['a'], 2) + number_format($hasil['b'], 2) * 3.5 }}</p>
-                    <button id="btnEndInput2" type="button" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Submit</button>
-                </div>
+                    <div id="hidden1" class="hidden">
+                        <div class="fst-italic w-50 mx-auto ">
+                            <p id="outptEnd1">Y = {{ number_format($hasil['a'], 2) }}+{{ number_format($hasil['b'], 2) }}(  )</p>
+                            <p id="outptEnd2">Y = {{ number_format($hasil['a'], 2) }}+{{ number_format($hasil['b'], 2) * 3.5}}</p>
+                            <p id="outptEnd3">Y = {{ number_format($hasil['a'], 2) + number_format($hasil['b'], 2) * 3.5 }}</p>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button id="btnEndInput2" type="button" class="btn btn1 px-5 rounded text-end">Submit</button>
+                        </div>
+                    </div>
 
-                <script>
-                    $(document).ready(function() {
-                        $('#btnEndInput1').on('click', function() {   
-                            const inptEnd = $('#inptEnd');
-                            const inptEndVal = $('#inptEnd').val(); 
-                            const awarning = $('#awarning');
+                    <script>
+                        $(document).ready(function() {
+                            $('#btnEndInput1').on('click', function() {   
+                                const inptEnd = $('#inptEnd');
+                                const inptEndVal = $('#inptEnd').val(); 
+                                const awarning = $('#awarning');
 
-                            if (!/^[-]?\d*\.?\d+$/.test(inptEndVal)){
-                                awarning.removeClass('hidden');
-                            } else { 
-                                awarning.addClass('animate__animated animate__fadeOut').on('animationend', function() { 
-                                    if (awarning.hasClass('animate__fadeOut')){
-                                        awarning.addClass('hidden');
-                                    }
-                                    awarning.toggleClass('animate__animated');
-                                    awarning.removeClass('animate__fadeOut');
-                                }) 
-                                $('#show1').addClass('hidden'); 
-                                $('#hidden1').removeClass('hidden');  
-
-                                $('#outptEnd1').html('Y = {{ number_format($hasil["a"], 2) }}+{{ number_format($hasil["b"], 2) }}(' + inptEndVal + ')');
-                                $('#outptEnd2').html('Y = {{ number_format($hasil["a"], 2) }}+ ' + ('{{ number_format($hasil["b"], 2) }}' * inptEndVal));
-                                $('#outptEnd3').html('Y = ' + ({{ number_format($hasil["a"], 2) }} + ({{ number_format($hasil["b"], 2) }} * inptEndVal)));
-                            }
-                        });
-
-                        $('#btnEndInput2').on('click', function() { 
-                            const inptEnd = $('#inptEnd');
-                            const inptEndVal = $('#inptEnd').val();  
-                            const awarning = $('#awarning');
-
-                            if (!/^[-]?\d*\.?\d+$/.test(inptEndVal)){
-                                if (awarning.hasClass('animate__fadeIn')){
+                                if (!/^[-]?\d*\.?\d+$/.test(inptEndVal)){
                                     awarning.removeClass('hidden');
+                                } else { 
+                                    awarning.addClass('animate__animated animate__fadeOut').on('animationend', function() { 
+                                        if (awarning.hasClass('animate__fadeOut')){
+                                            awarning.addClass('hidden');
+                                        }
+                                        awarning.toggleClass('animate__animated');
+                                        awarning.removeClass('animate__fadeOut');
+                                    }) 
+                                    $('#show1').addClass('hidden'); 
+                                    $('#hidden1').removeClass('hidden');  
+
+                                    $('#outptEnd1').html('Y = {{ number_format($hasil["a"], 2) }}+{{ number_format($hasil["b"], 2) }}(' + inptEndVal + ')');
+                                    $('#outptEnd2').html('Y = {{ number_format($hasil["a"], 2) }}+ ' + ('{{ number_format($hasil["b"], 2) }}' * inptEndVal));
+                                    $('#outptEnd3').html('Y = ' + ({{ number_format($hasil["a"], 2) }} + ({{ number_format($hasil["b"], 2) }} * inptEndVal)));
                                 }
-                                awarning.removeClass('animate__animated');
-                                awarning.removeClass('animate__fadeOut');
-                                awarning.addClass('animate__animated'); 
-                                awarning.addClass('animate__fadeIn'); 
-                            } else {                                  
-                                awarning.addClass('animate__animated animate__fadeOut').on('animationend', function() { 
-                                    if (awarning.hasClass('animate__fadeOut')){
-                                        awarning.addClass('hidden');
+                            });
+
+                            $('#btnEndInput2').on('click', function() { 
+                                const inptEnd = $('#inptEnd');
+                                const inptEndVal = $('#inptEnd').val();  
+                                const awarning = $('#awarning');
+
+                                if (!/^[-]?\d*\.?\d+$/.test(inptEndVal)){
+                                    if (awarning.hasClass('animate__fadeIn')){
+                                        awarning.removeClass('hidden');
                                     }
                                     awarning.removeClass('animate__animated');
                                     awarning.removeClass('animate__fadeOut');
-                                })   
-                                
-                                $('#outptEnd1').html('Y = {{ number_format($hasil["a"], 2) }}+{{ number_format($hasil["b"], 2) }}(' + inptEndVal + ')');
-                                $('#outptEnd2').html('Y = {{ number_format($hasil["a"], 2) }}+ ' + ('{{ number_format($hasil["b"], 2) }}' * inptEndVal));
-                                $('#outptEnd3').html('Y = ' + ({{ number_format($hasil["a"], 2) }} + ({{ number_format($hasil["b"], 2) }} * inptEndVal)));
-                            }                
+                                    awarning.addClass('animate__animated'); 
+                                    awarning.addClass('animate__fadeIn'); 
+                                } else {                                  
+                                    awarning.addClass('animate__animated animate__fadeOut').on('animationend', function() { 
+                                        if (awarning.hasClass('animate__fadeOut')){
+                                            awarning.addClass('hidden');
+                                        }
+                                        awarning.removeClass('animate__animated');
+                                        awarning.removeClass('animate__fadeOut');
+                                    })   
+                                    
+                                    $('#outptEnd1').html('Y = {{ number_format($hasil["a"], 2) }}+{{ number_format($hasil["b"], 2) }}(' + inptEndVal + ')');
+                                    $('#outptEnd2').html('Y = {{ number_format($hasil["a"], 2) }}+ ' + ('{{ number_format($hasil["b"], 2) }}' * inptEndVal));
+                                    $('#outptEnd3').html('Y = ' + ({{ number_format($hasil["a"], 2) }} + ({{ number_format($hasil["b"], 2) }} * inptEndVal)));
+                                }                
+                            });
                         });
-                    });
-                </script>
+                    </script>
                 </div> 
 
                 <div class="d-flex justify-content-end">
-                        <a href="#" type="submit" class="btn btn1 py-1 px-5 rounded text-end mt-4 mb-3">Back To Top</a>
+                        <a href="#" type="submit" class="py-1 text-decoration-none fs-c-10 text-end mt-2 mb-3">Back To Top</a>
                 </div>
             </div>
         </div>

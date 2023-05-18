@@ -10,7 +10,7 @@
                     <div class="card shadow p-3 mb-3 animate__animated animate__fadeInLeft">
                         <p class="mb-0">Kembali ke Home</p>                            
                         <div class="mt-1 fs-c-10">Tekan 'Kembali' untuk Kembali ke Menu Utama.</div>
-                        <a href="{{ url('/main') }}" type="submit" class="btn btn1 w-100 rounded mt-3">Kembali</a>
+                        <a href="{{ url('/') }}" type="submit" class="btn btn1 w-100 rounded mt-3">Kembali</a>
                     </div>
 
                     <div class="card shadow p-3 animate__animated animate__fadeInLeft"> 
@@ -32,7 +32,7 @@
                 <p class="title h2 text-center my-3 t-primary">HASIL</p>
                 <div>
                     <p class="mx-5 my-4">Berdasarkan Data Sebelumnya, Maka Dihasilkan Tabel Sebagai Berikut:</p>
-                    <table class="table w-50 mx-auto background-table2 text-center">
+                    <table class="table table-hover table-bordered w-75 mx-auto background-table2 text-center">
                         <thead class="">
                             <tr>
                                 <th scope="col">X</th>
@@ -54,15 +54,15 @@
                             @endfor
 
                             <!-- row paling bawah -->
-                            <tr class="background-table2">
+                            <tfoot>
                                 <td>{{ $hasil['xtotal'] }}</td>
                                 <td>{{ $hasil['ytotal'] }}</td>
                                 <td>{{ $hasil['x2total'] }}</td>
                                 <td>{{ $hasil['y2total'] }}</td>
                                 <td>{{ $hasil['xytotal'] }}</td> 
-                            </tr>
+                            </tfoot>
                         </tbody>
-                        </table>
+                    </table>
                 </div>
 
                 <!-- CARA KE-1 -->
@@ -582,7 +582,7 @@
                 </div>
 
                 <div class="my-4">
-                    <p class="mx-5 mb-4">Untuk Grapiknya Didapatkan Sebagai Berikut: </p>
+                    <p class="mx-5 mb-4">Untuk Grafiknya Didapatkan Sebagai Berikut: </p>
                     <canvas id="myChart"></canvas>
                 </div>
 
@@ -783,7 +783,7 @@
                 </div> 
 
                 <div class="d-flex justify-content-end">
-                        <a href="#" type="submit" class="py-1 text-decoration-none fs-c-10 text-end mt-2 mb-3">Back To Top</a>
+                        <a href="#" type="submit" class="py-1 text-decoration-none fs-c-10 text-end mb-1">Back To Top</a>
                 </div>
             </div>
         </div>

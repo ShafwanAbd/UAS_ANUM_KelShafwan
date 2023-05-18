@@ -50,8 +50,9 @@
                 </script>
 
                 <div class="container_input flex row px-3 pt-3">
+                     <h2 class="text-center fw-bolder t-primary mb-3">Aplikasi Regresi Linear</h2>
                     <div class="col"> 
-                        <h3 class="text-center mb-3">X Input</h3>
+                        <h4 class="text-center mb-3">X Input</h4>
                         @for ($i = 1; $i <= $data['berapaInput']; $i++)
                         <div class="mb-3">
                             <!-- <label for="exampleFormControlInput1" class="form-label">Input {{ $i }}</label> -->
@@ -60,7 +61,7 @@
                         @endfor
                     </div> 
                     <div class="col"> 
-                        <h3 class="text-center mb-3">Y Input</h3>
+                        <h4 class="text-center mb-3">Y Input</h4>
                         @for ($i = 1; $i <= $data['berapaInput']; $i++)
                         <div class="mb-3">
                             <!-- <label for="exampleFormControlInput1" class="form-label">Input {{ $i }}</label> -->
